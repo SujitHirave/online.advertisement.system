@@ -21,7 +21,7 @@ public class Hello {
   
     @GetMapping("/hello")
     public String hello() {
-    	LOG.info("Hello venu");
+    	LOG.info("Hello hemanth");
         return "Hello world ok!";
     }
 

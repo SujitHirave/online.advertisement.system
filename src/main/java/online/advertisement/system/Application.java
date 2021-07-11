@@ -22,7 +22,7 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 		LOG.info("End");
 		//pooja
-		
+		//pooja
 		
 	}
 

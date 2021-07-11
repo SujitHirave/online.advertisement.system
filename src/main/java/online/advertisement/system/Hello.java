@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//venu
+
 @RestController
 public class Hello {
 
@@ -21,7 +21,7 @@ public class Hello {
   
     @GetMapping("/hello")
     public String hello() {
-    	LOG.info("Hello ak");
+    	LOG.info("Hello venu");
         return "Hello world ok!";
     }
 

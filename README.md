@@ -10,12 +10,19 @@ Users can post their advertisements along with photos & contact details. Whosoev
  
 Technologies used:
 
-Spring Boot with Maven
-PostgreSQL 
-Spring REST concepts
-Spring Data JPA
-Layered Architecture
-Swagger/Postman
-Test cases
-Exception handling
+Spring Boot with Maven,
+
+PostgreSQL, 
+
+Spring REST concepts,
+
+Spring Data JPA,
+
+Layered Architecture,
+
+Swagger/Postman,
+
+Test cases,
+
+Exception handling.
 

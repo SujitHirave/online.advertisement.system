@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,11 +14,14 @@ public class Category {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@OneToMany(mappedBy="advertise_adv")
 	private int catid;
 	@Column(name = "catname", nullable = false, length = 20)
 	private String catname;
 	@Column(name = "catdescription", nullable = false, length = 20)
 	private String catdescription;
+	
+	
 
 	public Category() {
 		super();

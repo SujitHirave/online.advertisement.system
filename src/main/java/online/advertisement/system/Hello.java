@@ -15,7 +15,7 @@ public class Hello {
   @RequestMapping("/")
   public String welcome() {
   	LOG.info("welcome");
-      return "welocome!";
+      return "welocome!";//helloo
   }
   
   

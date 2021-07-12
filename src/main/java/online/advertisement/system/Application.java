@@ -21,6 +21,8 @@ public class Application {
 		LOG.info("Start");
 		SpringApplication.run(Application.class, args);
 		LOG.info("End");
+		//pd edit
+		
 	}
 
 }

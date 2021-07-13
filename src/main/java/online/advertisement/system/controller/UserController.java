@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import online.advertisement.system.model.AppUser;
 import online.advertisement.system.service.UserService;
 
-//import com.cg.spring.boot.demo.model.User;
+//import com.cg.spring.boot.demo.model.User;//
 //import com.cg.spring.boot.demo.service.UserService;
 
 

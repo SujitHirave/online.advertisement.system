@@ -24,8 +24,6 @@ public class Advertise {
 	private String status;
 
 	@ManyToOne
-	// @MapsId("catId")
-
 	@JoinColumn(name = "catid")
 	private Category category;
 

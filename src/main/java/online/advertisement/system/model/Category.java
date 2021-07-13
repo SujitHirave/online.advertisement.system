@@ -1,5 +1,7 @@
 package online.advertisement.system.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,14 +10,18 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
+
 @Entity
 @Table(name = "category_adv")
 public class Category {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@OneToMany(mappedBy="advertise_adv")
 	private int catid;
+	@OneToMany(mappedBy="category")
+	private List<Advertise> advertises;
+	
 	@Column(name = "catname", nullable = false, length = 20)
 	private String catname;
 	@Column(name = "catdescription", nullable = false, length = 20)

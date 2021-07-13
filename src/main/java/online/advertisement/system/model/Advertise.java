@@ -15,6 +15,7 @@ public class Advertise {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
 	private String advertisetitle;
 	@Column(name = "price", nullable = false, length = 20)
 	private double price;

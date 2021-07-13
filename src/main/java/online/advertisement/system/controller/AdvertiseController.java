@@ -37,13 +37,13 @@ public class AdvertiseController {
 	private AdvertiseService service;
 
 	
-//	@PostMapping("/register") 
-//	public AppUser postUser(@RequestBody AppUser users) {
-//		LOG.info("user");
-//		return service.registerUser(users);
-//		
-//	}
-//	
+	@PostMapping("/addproduct")
+	public Advertise addProduct(@RequestBody Advertise adv) {
+		LOG.info("addproduct");
+		return service.addAdvertise(adv);
+	}
+
+	
 	
 	
 	

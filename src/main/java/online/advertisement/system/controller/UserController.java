@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
+import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.AppUser;
 import online.advertisement.system.service.UserService;
 
@@ -41,10 +42,15 @@ public class UserController {
 //	}
 //	
 
-	@GetMapping("/read_advertise/{catid}") // endpoint , API
-	public AppUser getAppUser(@PathVariable("catid") int catid) {
-		LOG.info("readadvertise");
-		return service.findReadAdvertiseById(catid);
-	}
+//	@GetMapping("/read_advertise/{catid}") // endpoint , API
+//	public Advertise getAppUserById(@PathVariable("catid") int catid) {
+//		LOG.info("readadvertise");
+//		return service.findReadAdvertiseById(catid);
+//		
+//	}
 	
+	@GetMapping("/getAdvByName/{advertisetitle}")
+	private List<Advertise> getAdvertise(@PathVariable("advertisetitle") String advertisetitle) {
+		return service.getAdvertiseByName(advertisetitle);
+	}
 }

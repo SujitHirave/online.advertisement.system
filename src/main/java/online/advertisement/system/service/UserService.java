@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.AppUser;
 
 //import com.cg.spring.boot.demo.model.Employee;
@@ -27,15 +28,28 @@ public class UserService {
 	@Autowired
 	private UserRepository repository;
 
+//	public Advertise findReadAdvertiseById(int catid) {
+//		LOG.info("findEmployeeById");
+//		return repository.findById(catid).get();	
+//
+//	}
+
 //	public User registerUser(User users) {
 //		LOG.info("addUser");
 //		return repository.save(users);
 //	}
 
-	public AppUser findReadAdvertiseById(int catid) {
-		
-			LOG.info("findEmployeeById");
-			return repository.findById(catid).get();	
-			
+//	public AppUser findReadAdvertiseById(int catid) {
+//		
+//			LOG.info("findEmployeeById");
+//			return repository.findById(catid).get();	
+//			
+//	}
+
+	public List<Advertise> getAdvertiseByName(String advertisetitle) {
+		LOG.info("findAdvertiseByName");
+		return repository.findByName(advertisetitle);
 	}
+	
+	
 }

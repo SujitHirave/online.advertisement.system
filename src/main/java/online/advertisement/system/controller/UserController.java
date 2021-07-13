@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import online.advertisement.system.model.AppUser;
+
+
+import online.advertisement.system.model.User;
 import online.advertisement.system.service.UserService;
 
 //import com.cg.spring.boot.demo.model.User;//
@@ -31,9 +33,9 @@ public class UserController {
 	@Autowired
 	private UserService service;
 
-	@PostMapping("/register") 
-	public AppUser userRegister(@RequestBody AppUser users) {
-		LOG.info("addUser");
+	@PostMapping("/user/register") 
+	public User postUser(@RequestBody User users) {
+		LOG.info("user");
 		return service.registerUser(users);
 		
 	}

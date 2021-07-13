@@ -28,7 +28,7 @@ import online.advertisement.system.service.UserService;
 @RestController
 public class UserController {
 
-	private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(UserController.class);//hello
 
 	@Autowired
 	private UserService service;

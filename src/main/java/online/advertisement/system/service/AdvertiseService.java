@@ -1,5 +1,6 @@
 package online.advertisement.system.service;
 
+
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -11,16 +12,17 @@ import org.springframework.stereotype.Service;
 
 import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.AppUser;
+import online.advertisement.system.repository.AdvertiseRepository;
 import online.advertisement.system.repository.UserRepository;
 
 
 @Service
-public class UserService {
+public class AdvertiseService {
 
-	private static final Logger LOG = LoggerFactory.getLogger(UserService.class);
+	private static final Logger LOG = LoggerFactory.getLogger(AdvertiseService.class);
 
 	@Autowired
-	private UserRepository repository;
+	private AdvertiseRepository repository;
 
 //	public Advertise findReadAdvertiseById(int catid) {
 //		LOG.info("findEmployeeById");
@@ -41,9 +43,14 @@ public class UserService {
 //	}
 
 //	public List<Advertise> getAdvertiseByName(String advertisetitle) {
-//		LOG.info("findAdvertiseByName");
-//		return repository.findByName(advertisetitle);
+//		LOG.info("findAdvertiseById");
+//		return repository.findById(catid).get();	
 //	}
+
+	public List<Advertise> getAdvertiseByName(String advertisetitle) {
+		LOG.info("findAdvertiseByName");
+		return repository.findByName(advertisetitle);
+	}
 	
 	
 }

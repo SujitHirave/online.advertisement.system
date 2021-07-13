@@ -1,5 +1,6 @@
 package online.advertisement.system.repository;
 
+
 import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.AppUser;
 
@@ -16,12 +17,11 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface UserRepository extends JpaRepository<AppUser, Integer> {
+public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 
 	//List<Advertise> findByName(String advertisetitle);
 
-	//public abstract List<Advertise> findByName(String advertisetitle);
+	public abstract List<Advertise> findByName(String advertisetitle);
 
 //	public abstract List<User> registerUser(String users);
 }
-

@@ -1,5 +1,6 @@
 package online.advertisement.system.controller;
 
+
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -19,19 +20,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.AppUser;
+import online.advertisement.system.service.AdvertiseService;
 import online.advertisement.system.service.UserService;
 
 //import com.cg.spring.boot.demo.model.User;//
 //import com.cg.spring.boot.demo.service.UserService;
 
 
-@RestController("/user")
-public class UserController {
+//@RestController("/user")
+@RestController
+public class AdvertiseController {
 
-	private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(AdvertiseController.class);
 
 	@Autowired
-	private UserService service;
+	private AdvertiseService service;
 
 	
 //	@PostMapping("/register") 
@@ -44,8 +47,8 @@ public class UserController {
 	
 	
 	
-//	@GetMapping("/getAdvByName/{advertisetitle}")
-//	private List<Advertise> getAdvertise(@PathVariable("advertisetitle") String advertisetitle) {
-//		return service.getAdvertiseByName(advertisetitle);
-//	}
+	@GetMapping("/getAdvByName/{advertisetitle}")
+	private List<Advertise> getAdvertise(@PathVariable("advertisetitle") String advertisetitle) {
+		return service.getAdvertiseByName(advertisetitle);
+	}
 }

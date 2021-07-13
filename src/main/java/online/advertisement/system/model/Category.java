@@ -17,8 +17,9 @@ import javax.persistence.Table;
 public class Category {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue//(strategy = GenerationType)
 	private int catid;
+	@Column()
 	@OneToMany(mappedBy="category")
 	private List<Advertise> advertises;
 	

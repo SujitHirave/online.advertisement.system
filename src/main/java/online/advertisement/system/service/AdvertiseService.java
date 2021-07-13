@@ -49,7 +49,7 @@ public class AdvertiseService {
 
 	public List<Advertise> getAdvertiseByName(String advertisetitle) {
 		LOG.info("findAdvertiseByName");
-		return repository.findByName(advertisetitle);
+		return repository.findByadvertisetitle("laptop on sale");
 	}
 	
 	

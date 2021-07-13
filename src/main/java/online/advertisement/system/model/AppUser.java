@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_adv") 
-public class User {
+public class AppUser {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,11 +22,11 @@ public class User {
 	private String contactno;
 	@Column(name="email",nullable = false, unique = true, length = 45)
 	private String email;
-	public User() {
+	public AppUser() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public User(int userid, String username, String address, String contactno, String email) {
+	public AppUser(int userid, String username, String address, String contactno, String email) {
 		super();
 		this.userid = userid;
 		this.username = username;

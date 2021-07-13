@@ -17,15 +17,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
-
-import online.advertisement.system.model.User;
+import online.advertisement.system.model.AppUser;
 import online.advertisement.system.service.UserService;
 
 //import com.cg.spring.boot.demo.model.User;//
 //import com.cg.spring.boot.demo.service.UserService;
 
 
-@RestController
+@RestController("/user")
 public class UserController {
 
 	private static final Logger LOG = LoggerFactory.getLogger(UserController.class);//hello
@@ -33,13 +32,19 @@ public class UserController {
 	@Autowired
 	private UserService service;
 
-	@PostMapping("/user/register") 
-	public User postUser(@RequestBody User users) {
-		LOG.info("user");
-		return service.registerUser(users);
-		
+	
+//	@PostMapping("/register") 
+//	public AppUser postUser(@RequestBody AppUser users) {
+//		LOG.info("user");
+//		return service.registerUser(users);
+//		
+//	}
+//	
+
+	@GetMapping("/read_advertise/{catid}") // endpoint , API
+	public AppUser getAppUser(@PathVariable("catid") int catid) {
+		LOG.info("readadvertise");
+		return service.findReadAdvertiseById(catid);
 	}
-	
-	
 	
 }

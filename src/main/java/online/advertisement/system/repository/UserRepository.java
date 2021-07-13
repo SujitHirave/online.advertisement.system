@@ -1,6 +1,6 @@
 package online.advertisement.system.repository;
 
-import online.advertisement.system.model.User;
+import online.advertisement.system.model.AppUser;
 
 import java.util.List;
 
@@ -14,8 +14,8 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<AppUser, Integer> {
 
-	public abstract List<User> registerUser(String users);
+//	public abstract List<User> registerUser(String users);
 }
 

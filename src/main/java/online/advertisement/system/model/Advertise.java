@@ -1,9 +1,13 @@
 package online.advertisement.system.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,6 +20,8 @@ public class Advertise {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int advid;
+	@OneToOne(mappedBy="advertise",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	private Message message;
 	@Column
 	private String advertisetitle;
 	@Column(name = "price", nullable = false, length = 20)
@@ -29,6 +35,7 @@ public class Advertise {
 	@JoinColumn(name = "catid")
 	private Category category;
 
+	
 	public Advertise() {
 		super();
 		// TODO Auto-generated constructor stub

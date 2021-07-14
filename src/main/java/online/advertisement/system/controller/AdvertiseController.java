@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import jdk.internal.org.jline.utils.Log;
 import online.advertisement.system.model.Advertise;
@@ -49,13 +51,32 @@ public class AdvertiseController {
 	private List<Advertise> getAdvertise(@PathVariable("advertisetitle") String advertisetitle) {
 		return service.getAdvertiseByName(advertisetitle);
 	}
+	
+// Read all advertises posted by user
+	@GetMapping("/getAllAdv")
+	private List<Advertise> getAllAdv(){
+		LOG.info("ViewAdvertises");
+		return service.getAllAdvertises();
+	}
+	
+//	get by id
+	@GetMapping("/getadv/{advid}")
+	public Advertise getAdvertiseById(@PathVariable("advid") int advid) {
+		LOG.info("advertise");
 
+		return service.getAdvertiseById(advid);
+	}
+	
+	
+	
 //	Update advertise product
 	@PutMapping("/updateadv")
 	public Advertise updateAdv(@RequestBody Advertise adv) {
 		LOG.info("updateProduct");
 		return service.updateAdvertise(adv);
 	}
+	
+	
 	
 ////	For deleting Products
 //	@DeleteMapping("deleteadv/{advertisetitle}")

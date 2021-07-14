@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+
 import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.AppUser;
 import online.advertisement.system.repository.AdvertiseRepository;
@@ -52,6 +53,18 @@ public class AdvertiseService {
 		LOG.info("findAdvertiseByName");
 		return repository.findByadvertisetitle(advertisetitle);
 	}
+	
+
+	public List<Advertise> getAllAdvertises() {
+		LOG.info("ViewAllAdvertises");
+		return repository.findAll();
+	}
+	
+	public Advertise getAdvertiseById(int advid) {
+		LOG.info("Advertise");
+		return repository.getByadvid(advid);
+	}
+
 
 	public Advertise addAdvertise(Advertise adv) {
 		
@@ -76,6 +89,11 @@ public class AdvertiseService {
 		repository.deleteById(advid);
 		
 	}
+
+
+	
+
+	
 
 	
 	

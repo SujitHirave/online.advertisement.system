@@ -27,6 +27,11 @@ public class UserService {
 		return repository.save(users);
 	}
 
+	public AppUser editUserProfile(AppUser edit) {
+		LOG.info("UpdateUser");
+		return repository.save(edit);
+	}
+
 //	public Advertise findReadAdvertiseById(int catid) {
 //		LOG.info("findEmployeeById");
 //		return repository.findById(catid).get();	

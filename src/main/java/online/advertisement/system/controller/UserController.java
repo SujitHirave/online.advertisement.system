@@ -33,14 +33,18 @@ public class UserController {
 	@Autowired
 	private UserService service;
 
-	
+//	user registration
 	@PostMapping("/register") 
 	public AppUser registerUser(@RequestBody AppUser users) {
 		LOG.info("user");
-		return service.registerUser(users);
-		
+		return service.registerUser(users);	
 	}
-//	
+//	edit user
+	@PutMapping("/edit_user")
+	public AppUser editUser(@RequestBody AppUser edit) {
+		LOG.info("updateUser");
+		return service.editUserProfile(edit);
+	}
 	
 	
 	

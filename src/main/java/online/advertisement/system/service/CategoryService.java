@@ -26,4 +26,16 @@ public class CategoryService {
 		
 	}
 
+	public List<Category> getAllCategory() {
+		LOG.info("ViewCategory");
+		return repository.findAll();
+		
+	}
+
+	public void deleteCategory(int catid) {
+		LOG.info("deleteCategory");
+		repository.deleteById(catid);
+		
+	}
+
 }

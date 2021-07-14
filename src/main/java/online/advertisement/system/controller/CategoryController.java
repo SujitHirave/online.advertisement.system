@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.Category;
 import online.advertisement.system.service.CategoryService;
 
@@ -40,16 +41,27 @@ public class CategoryController {
 	@Autowired
 	private CategoryService service;
 
-	
-	@PostMapping("/addcategory")
+// Add category	
+	@PostMapping("/admin/addcategory")
 	public Category addCategory( Category cat) {
 		LOG.info("addproduct");
 		return service.addCategory(cat);
 	}
+	
+//	view Category
+	@GetMapping("/getall")
+	private List<Category> getAllCat() {
+		LOG.info("ViewCategory");
+		return service.getAllCategory();
+	}
+	
 
+//	Delete category by id
+	@DeleteMapping("/admin/deletecat/{catid}")
+	public void deleteCat(@PathVariable int catid) {
+		LOG.info("deleteCategory");
+		service.deleteCategory(catid);
+	}
 	
-	
-	
-	
-	
+
 	}

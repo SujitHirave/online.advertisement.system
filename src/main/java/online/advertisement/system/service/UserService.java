@@ -22,6 +22,11 @@ public class UserService {
 	@Autowired
 	private UserRepository repository;
 
+	public AppUser registerUser(AppUser users) {
+		LOG.info("RegisterUser");
+		return repository.save(users);
+	}
+
 //	public Advertise findReadAdvertiseById(int catid) {
 //		LOG.info("findEmployeeById");
 //		return repository.findById(catid).get();	

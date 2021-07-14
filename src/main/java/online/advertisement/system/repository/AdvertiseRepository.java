@@ -23,5 +23,8 @@ public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 
 	public abstract List<Advertise> findByadvertisetitle(String advertisetitle);
 
+//	public abstract String deleteByadvertisetitle(String advertisetitle);
+
 //	public abstract List<User> registerUser(String users);
+
 }

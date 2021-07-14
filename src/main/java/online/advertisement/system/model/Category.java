@@ -19,7 +19,7 @@ import javax.persistence.Table;
 public class Category {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int catid;
 	@OneToMany(mappedBy="category",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	private List<Advertise> advertises;

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import jdk.internal.org.jline.utils.Log;
 import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.AppUser;
 import online.advertisement.system.service.AdvertiseService;
@@ -36,7 +36,7 @@ public class AdvertiseController {
 	@Autowired
 	private AdvertiseService service;
 
-	
+//	For Adding Products(Selling)
 	@PostMapping("/addproduct")
 	public Advertise addProduct( Advertise adv) {
 		LOG.info("addproduct");
@@ -44,12 +44,30 @@ public class AdvertiseController {
 		return service.addAdvertise(adv);
 	}
 
-	
-	
-	
-	
+//	For getting products(Buying)
 	@GetMapping("/getAdvByName/{advertisetitle}")
 	private List<Advertise> getAdvertise(@PathVariable("advertisetitle") String advertisetitle) {
 		return service.getAdvertiseByName(advertisetitle);
+	}
+
+//	Update advertise product
+	@PutMapping("/updateadv")
+	public Advertise updateAdv(@RequestBody Advertise adv) {
+		LOG.info("updateProduct");
+		return service.updateAdvertise(adv);
+	}
+	
+////	For deleting Products
+//	@DeleteMapping("deleteadv/{advertisetitle}")
+//	public String deleteAdv(@PathVariable("advertisetitle") String advertisetitle) {
+//		LOG.info("deleteProduct");
+//		return service.deleteAdvertise(advertisetitle);
+//	}
+	
+//	Delete product by id
+	@DeleteMapping("/deleteadv/{advid}")
+	public void deleteAdv(@PathVariable int advid) {
+		LOG.info("deleteProduct");
+		service.deleteAdvertise(advid);
 	}
 }

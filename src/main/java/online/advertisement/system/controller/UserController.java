@@ -34,12 +34,12 @@ public class UserController {
 	private UserService service;
 
 	
-//	@PostMapping("/register") 
-//	public AppUser postUser(@RequestBody AppUser users) {
-//		LOG.info("user");
-//		return service.registerUser(users);
-//		
-//	}
+	@PostMapping("/register") 
+	public AppUser registerUser(@RequestBody AppUser users) {
+		LOG.info("user");
+		return service.registerUser(users);
+		
+	}
 //	
 	
 	

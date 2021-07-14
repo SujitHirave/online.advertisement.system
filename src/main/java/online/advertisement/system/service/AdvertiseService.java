@@ -50,7 +50,7 @@ public class AdvertiseService {
 
 	public List<Advertise> getAdvertiseByName(String advertisetitle) {
 		LOG.info("findAdvertiseByName");
-		return repository.findByadvertisetitle("laptop on sale");
+		return repository.findByadvertisetitle(advertisetitle);
 	}
 
 	public Advertise addAdvertise(Advertise adv) {
@@ -58,7 +58,27 @@ public class AdvertiseService {
 			LOG.info("addProduct");
 			return repository.save(adv);
 		}
+	
+	public Advertise updateAdvertise(Advertise adv) {
+		LOG.info("updateProduct");
+		return repository.save(adv);
+	}
 
+//	public String deleteAdvertise(String advertisetitle) {
+//		LOG.info("deleteProduct");
+//		repository.deleteByadvertisetitle(advertisetitle);
+//		return advertisetitle;
+//	}
+
+//	Delete product by id
+	public void deleteAdvertise(int advid) {
+		LOG.info("deleteProduct");
+		repository.deleteById(advid);
+		
+	}
+
+	
+	
 		
 	}
 	

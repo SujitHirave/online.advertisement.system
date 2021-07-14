@@ -1,6 +1,5 @@
 package online.advertisement.system.controller;
 
-
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -17,11 +16,16 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import online.advertisement.system.model.Category;
+import online.advertisement.system.service.CategoryService;
 
-import online.advertisement.system.model.Advertise;
-import online.advertisement.system.model.AppUser;
-import online.advertisement.system.service.AdvertiseService;
-import online.advertisement.system.service.UserService;
+//
+//import online.advertisement.system.model.Advertise;
+//import online.advertisement.system.model.AppUser;
+//import online.advertisement.system.model.Category;
+//import online.advertisement.system.service.CategoryService;
+//import online.advertisement.system.service.AdvertiseService;
+//import online.advertisement.system.service.UserService;
 
 //import com.cg.spring.boot.demo.model.User;//
 //import com.cg.spring.boot.demo.service.UserService;
@@ -29,27 +33,23 @@ import online.advertisement.system.service.UserService;
 
 //@RestController("/user")
 @RestController
-public class AdvertiseController {
+public class CategoryController {
 
-	private static final Logger LOG = LoggerFactory.getLogger(AdvertiseController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(CategoryController.class);
 
 	@Autowired
-	private AdvertiseService service;
+	private CategoryService service;
 
 	
-	@PostMapping("/addproduct")
-	public Advertise addProduct( Advertise adv) {
+	@PostMapping("/addcategory")
+	public Category addCategory( Category cat) {
 		LOG.info("addproduct");
-		System.out.println(adv);
-		return service.addAdvertise(adv);
+		return service.addCategory(cat);
 	}
 
 	
 	
 	
 	
-	@GetMapping("/getAdvByName/{advertisetitle}")
-	private List<Advertise> getAdvertise(@PathVariable("advertisetitle") String advertisetitle) {
-		return service.getAdvertiseByName(advertisetitle);
+	
 	}
-}

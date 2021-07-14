@@ -16,6 +16,7 @@ public class Advertise {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	@Column
 	private String advertisetitle;
 	@Column(name = "price", nullable = false, length = 20)
 	private double price;
@@ -33,13 +34,23 @@ public class Advertise {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Advertise(String advertisetitle, double price, String description, String status, Category category) {
+	public Advertise(int id, String advertisetitle, double price, String description, String status,
+			Category category) {
 		super();
+		this.id = id;
 		this.advertisetitle = advertisetitle;
 		this.price = price;
 		this.description = description;
 		this.status = status;
 		this.category = category;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getAdvertisetitle() {
@@ -84,8 +95,10 @@ public class Advertise {
 
 	@Override
 	public String toString() {
-		return "Advertise [advertisetitle=" + advertisetitle + ", price=" + price + ", description=" + description
-				+ ", status=" + status + ", category=" + category + "]";
+		return "Advertise [id=" + id + ", advertisetitle=" + advertisetitle + ", price=" + price + ", description="
+				+ description + ", status=" + status + ", category=" + category + "]";
 	}
+
+	
 
 }

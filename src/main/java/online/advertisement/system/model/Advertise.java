@@ -21,8 +21,8 @@ public class Advertise {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int advid;
 //	@OneToOne(mappedBy="advertise",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-//	@OneToOne(mappedBy="advertise")
-//	private Message message;
+	@OneToOne(mappedBy="advertise")
+	private Message message;
 	@Column
 	private String advertisetitle;
 	@Column(name = "price", nullable = false, length = 10)
@@ -47,13 +47,32 @@ public class Advertise {
 			String advownername, Category category) {
 		super();
 		this.advid = advid;
-//		this.message = message;
+		this.message = message;
 		this.advertisetitle = advertisetitle;
 		this.price = price;
 		this.description = description;
 		this.status = status;
 		this.advownername = advownername;
 		this.category = category;
+	}
+	
+	
+
+	public Advertise(int advid, Message message, String advertisetitle, double price, String description,
+			String advownername, Category category) {
+		super();
+		this.advid = advid;
+		this.message = message;
+		this.advertisetitle = advertisetitle;
+		this.price = price;
+		this.description = description;
+		this.advownername = advownername;
+		this.category = category;
+	}
+
+	public Advertise(String status) {
+		super();
+		this.status = status;
 	}
 
 	public int getAdvid() {
@@ -64,13 +83,13 @@ public class Advertise {
 		this.advid = advid;
 	}
 
-//	public Message getMessage() {
-//		return message;
-//	}
-//
-//	public void setMessage(Message message) {
-//		this.message = message;
-//	}
+	public Message getMessage() {
+		return message;
+	}
+
+	public void setMessage(Message message) {
+		this.message = message;
+	}
 
 	public String getAdvertisetitle() {
 		return advertisetitle;
@@ -122,12 +141,11 @@ public class Advertise {
 
 	@Override
 	public String toString() {
-		return "Advertise [advid=" + advid + ", advertisetitle=" + advertisetitle + ", price="
+		return "Advertise [advid=" + advid + ", message=" + message + ", advertisetitle=" + advertisetitle + ", price="
 				+ price + ", description=" + description + ", status=" + status + ", advownername=" + advownername
 				+ ", category=" + category + "]";
 	}
 
-	
 	
 
 

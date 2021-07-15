@@ -93,6 +93,12 @@ public class AdvertiseService {
 	}
 
 
+	public List<Advertise> getApprovedAdvs() {
+		LOG.info("ApprovedAdvertise");
+		return repository.viewApprovedAdv();
+	}
+
+
 	
 
 	

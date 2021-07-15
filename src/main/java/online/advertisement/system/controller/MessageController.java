@@ -37,8 +37,8 @@ public class MessageController {
 //	}
 //	
 	@PostMapping("/buyer/sendMessage")
-	public Message sendMsg1 (Message smsg ) {
+	public Message sendMsg (int userid, int advid, String textMessage ) {
 		LOG.info("send message");
-		return service.sendMessage(smsg);
+		return service.sendMessage(userid, advid, textMessage);
 	}
 }

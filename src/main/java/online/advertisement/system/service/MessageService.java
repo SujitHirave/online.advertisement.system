@@ -1,5 +1,7 @@
 package online.advertisement.system.service;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +19,23 @@ public class MessageService {
 
 	@Autowired
 	private MessageRepository repository;
-	
-	public Message sendMessage(Message smsg) {
+
+	public Message sendMessage(int userid, int advid, String textMessage) {
 		LOG.info("send message");
-		return repository.save(smsg);
+		return repository.inserted(userid, advid, textMessage);
 	}
+	
+//	public Message sendMessage(Message smsg) {
+//		LOG.info("send message");
+//		return repository.save(smsg);
+//	}
+	
+//	public Message sendMessage(int userid, int advid, String textMessage) {
+//		LOG.info("send message");
+//		return repository.save(userid, advid, textMessage);
+//	}
+
+	
+
 
 }

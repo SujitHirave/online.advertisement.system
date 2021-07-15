@@ -17,32 +17,49 @@ public class Message {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int msgid;
 	
+//	private int id; // messageId 
+//	private int sellerId; 
+//	private int buyerId;
+//	private int advId;
+//	private String messageText;
+	
 	@OneToOne
 	@JoinColumn(name = "advid")
-//	@JoinColumn(name = "advid", referencedColumnName = "msgid")
 	private Advertise advertise;
 	
-	@Column(name = "seller", nullable = true, length = 20)
-	private String seller;
+	@OneToOne
+	@JoinColumn(name = "userid")
+	private AppUser appUser;
 	
-	@Column(name = "buyer", nullable = false, length = 20)
-	private String buyer;
+	@Column(name = "sellerId", length = 20)
+	private int sellerId;
 	
-	@Column(name = "message", nullable = false, length = 60)
-	private String message;
+	@Column(name = "buyerId", length = 20)
+	private int buyerId;
+	
+	@Column(name = "textMessage", nullable = false, length = 60)
+	private String textMessage;
 
 	public Message() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Message(int msgid, Advertise advertise, String seller, String buyer, String message) {
+	public Message(int msgid, Advertise advertise, AppUser appUser, int sellerId, int buyerId, String textMessage) {
 		super();
 		this.msgid = msgid;
 		this.advertise = advertise;
-		this.seller = seller;
-		this.buyer = buyer;
-		this.message = message;
+		this.appUser = appUser;
+		this.sellerId = sellerId;
+		this.buyerId = buyerId;
+		this.textMessage = textMessage;
+	}
+
+	public Message(Advertise advertise, int sellerId, int buyerId) {
+		super();
+		this.advertise = advertise;
+		this.sellerId = sellerId;
+		this.buyerId = buyerId;
 	}
 
 	public int getMsgid() {
@@ -61,38 +78,43 @@ public class Message {
 		this.advertise = advertise;
 	}
 
-	public String getSeller() {
-		return seller;
+	public AppUser getAppUser() {
+		return appUser;
 	}
 
-	public void setSeller(String seller) {
-		this.seller = seller;
+	public void setAppUser(AppUser appUser) {
+		this.appUser = appUser;
 	}
 
-	public String getBuyer() {
-		return buyer;
+	public int getSellerId() {
+		return sellerId;
 	}
 
-	public void setBuyer(String buyer) {
-		this.buyer = buyer;
+	public void setSellerId(int sellerId) {
+		this.sellerId = sellerId;
 	}
 
-	public String getMessage() {
-		return message;
+	public int getBuyerId() {
+		return buyerId;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public void setBuyerId(int buyerId) {
+		this.buyerId = buyerId;
+	}
+
+	public String getTextMessage() {
+		return textMessage;
+	}
+
+	public void setTextMessage(String textMessage) {
+		this.textMessage = textMessage;
 	}
 
 	@Override
 	public String toString() {
-		return "Message [msgid=" + msgid + ", advertise=" + advertise + ", seller=" + seller + ", buyer=" + buyer
-				+ ", message=" + message + "]";
+		return "Message [msgid=" + msgid + ", advertise=" + advertise + ", appUser=" + appUser + ", sellerId="
+				+ sellerId + ", buyerId=" + buyerId + ", textMessage=" + textMessage + "]";
 	}
 
 	
-	
-	
-
 }

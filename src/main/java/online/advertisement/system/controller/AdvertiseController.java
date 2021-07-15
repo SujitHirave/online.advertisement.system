@@ -45,6 +45,13 @@ public class AdvertiseController {
 		return service.addAdvertise(adv);
 	}
 
+//	show approved status of advertise
+	@GetMapping("/user/buyer/getAllAdv")
+	private List<Advertise> getApprovedAdv(){
+		LOG.info("ViewAdvertises");
+		return service.getApprovedAdvs();
+	}
+	
 //	Search Advertise by text entered in textbox(Buying)
 	@GetMapping("/user/getAdvByName/{advertisetitle}")
 	private List<Advertise> getAdvertise(@PathVariable("advertisetitle") String advertisetitle) {

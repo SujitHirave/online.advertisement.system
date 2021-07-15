@@ -27,6 +27,11 @@ public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 	@Query("DELETE from Advertise a WHERE a.advid = :advid")
 	public abstract void deleteById(int advid);
 
+	@Modifying
+	@Transactional
+	@Query( value = "SELECT * FROM advertise_adv WHERE status IN ( 'OPEN', 'APPROVED')", nativeQuery = true)
+	public abstract List<Advertise> viewApprovedAdv();
+
 //	public abstract String deleteByadvertisetitle(String advertisetitle);
 
 //	public abstract List<User> registerUser(String users);

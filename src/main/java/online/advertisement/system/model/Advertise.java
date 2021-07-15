@@ -20,35 +20,39 @@ public class Advertise {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int advid;
-	@OneToOne(mappedBy="advertise",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-	private Message message;
+//	@OneToOne(mappedBy="advertise",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+//	@OneToOne(mappedBy="advertise")
+//	private Message message;
 	@Column
 	private String advertisetitle;
-	@Column(name = "price", nullable = false, length = 20)
+	@Column(name = "price", nullable = false, length = 10)
 	private double price;
-	@Column(name = "description", nullable = false, length = 20)
+	@Column(name = "description", nullable = false, length = 40)
 	private String description;
-	@Column(name = "status", nullable = false, length = 20)
+	@Column(name = "status", nullable = false, length = 10)
 	private String status;
+	@Column(name = "advownername", nullable = false, length = 20)
+	private String advownername;
 
 	@ManyToOne
 	@JoinColumn(name = "catid")
 	private Category category;
 
-	
 	public Advertise() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Advertise(int advid, String advertisetitle, double price, String description, String status,
-			Category category) {
+	public Advertise(int advid, Message message, String advertisetitle, double price, String description, String status,
+			String advownername, Category category) {
 		super();
 		this.advid = advid;
+//		this.message = message;
 		this.advertisetitle = advertisetitle;
 		this.price = price;
 		this.description = description;
 		this.status = status;
+		this.advownername = advownername;
 		this.category = category;
 	}
 
@@ -59,6 +63,14 @@ public class Advertise {
 	public void setAdvid(int advid) {
 		this.advid = advid;
 	}
+
+//	public Message getMessage() {
+//		return message;
+//	}
+//
+//	public void setMessage(Message message) {
+//		this.message = message;
+//	}
 
 	public String getAdvertisetitle() {
 		return advertisetitle;
@@ -92,6 +104,14 @@ public class Advertise {
 		this.status = status;
 	}
 
+	public String getAdvownername() {
+		return advownername;
+	}
+
+	public void setAdvownername(String advownername) {
+		this.advownername = advownername;
+	}
+
 	public Category getCategory() {
 		return category;
 	}
@@ -102,10 +122,13 @@ public class Advertise {
 
 	@Override
 	public String toString() {
-		return "Advertise [advid=" + advid + ", advertisetitle=" + advertisetitle + ", price=" + price
-				+ ", description=" + description + ", status=" + status + ", category=" + category + "]";
+		return "Advertise [advid=" + advid + ", advertisetitle=" + advertisetitle + ", price="
+				+ price + ", description=" + description + ", status=" + status + ", advownername=" + advownername
+				+ ", category=" + category + "]";
 	}
 
+	
+	
 
 
 }

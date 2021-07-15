@@ -22,23 +22,27 @@ public class Message {
 //	@JoinColumn(name = "advid", referencedColumnName = "msgid")
 	private Advertise advertise;
 	
-	@Column
-	private String senderUserName;
+	@Column(name = "seller", nullable = true, length = 20)
+	private String seller;
 	
-	@Column
-	private String msg;
+	@Column(name = "buyer", nullable = false, length = 20)
+	private String buyer;
+	
+	@Column(name = "message", nullable = false, length = 60)
+	private String message;
 
 	public Message() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Message(int msgid, Advertise advertise, String senderUserName, String msg) {
+	public Message(int msgid, Advertise advertise, String seller, String buyer, String message) {
 		super();
 		this.msgid = msgid;
 		this.advertise = advertise;
-		this.senderUserName = senderUserName;
-		this.msg = msg;
+		this.seller = seller;
+		this.buyer = buyer;
+		this.message = message;
 	}
 
 	public int getMsgid() {
@@ -57,27 +61,36 @@ public class Message {
 		this.advertise = advertise;
 	}
 
-	public String getSenderUserName() {
-		return senderUserName;
+	public String getSeller() {
+		return seller;
 	}
 
-	public void setSenderUserName(String senderUserName) {
-		this.senderUserName = senderUserName;
+	public void setSeller(String seller) {
+		this.seller = seller;
 	}
 
-	public String getMsg() {
-		return msg;
+	public String getBuyer() {
+		return buyer;
 	}
 
-	public void setMsg(String msg) {
-		this.msg = msg;
+	public void setBuyer(String buyer) {
+		this.buyer = buyer;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	@Override
 	public String toString() {
-		return "Message [msgid=" + msgid + ", advertise=" + advertise + ", senderUserName=" + senderUserName + ", msg="
-				+ msg + "]";
+		return "Message [msgid=" + msgid + ", advertise=" + advertise + ", seller=" + seller + ", buyer=" + buyer
+				+ ", message=" + message + "]";
 	}
+
 	
 	
 	

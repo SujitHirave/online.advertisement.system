@@ -32,6 +32,23 @@ public class UserService {
 		return repository.save(edit);
 	}
 
+	public List<AppUser> getAllUsers() {
+		LOG.info("ViewAllUsers");
+		return repository.findAll();
+	}
+
+	public void deleteAdvertise(int userid) {
+		LOG.info("deleteUser-service");
+		repository.deleteById(userid);
+	
+		
+	}
+
+	public List<AppUser> getUsersList(List<AppUser> username) {
+		LOG.info("viewUserList");
+		return repository.findAll();
+	}
+
 //	public Advertise findReadAdvertiseById(int catid) {
 //		LOG.info("findEmployeeById");
 //		return repository.findById(catid).get();	

@@ -43,13 +43,13 @@ public class CategoryController {
 
 // Add category	
 	@PostMapping("/admin/addcategory")
-	public Category addCategory( Category cat) {
+	public Category addCategory(@RequestBody Category cat) {
 		LOG.info("addproduct");
 		return service.addCategory(cat);
 	}
 	
 //	view Category
-	@GetMapping("/getall")
+	@GetMapping("/user/getall")
 	private List<Category> getAllCat() {
 		LOG.info("ViewCategory");
 		return service.getAllCategory();

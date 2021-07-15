@@ -38,39 +38,41 @@ public class AdvertiseController {
 	@Autowired
 	private AdvertiseService service;
 
-//	For Adding Products(Selling)
-	@PostMapping("/addproduct")
-	public Advertise addProduct( Advertise adv) {
+//	Post New Advertise(Selling)
+	@PostMapping("/user/AddAdvertise")
+	public Advertise addProduct(@RequestBody Advertise adv) {
 		LOG.info("addproduct");
-		System.out.println(adv);
 		return service.addAdvertise(adv);
 	}
 
-//	For getting products(Buying)
-	@GetMapping("/getAdvByName/{advertisetitle}")
+//	Search Advertise by text entered in textbox(Buying)
+	@GetMapping("/user/getAdvByName/{advertisetitle}")
 	private List<Advertise> getAdvertise(@PathVariable("advertisetitle") String advertisetitle) {
 		return service.getAdvertiseByName(advertisetitle);
 	}
 	
 // Read all advertises posted by user
-	@GetMapping("/getAllAdv")
+	@GetMapping("/user/getAllAdv")
 	private List<Advertise> getAllAdv(){
 		LOG.info("ViewAdvertises");
 		return service.getAllAdvertises();
 	}
 	
-//	get by id
-	@GetMapping("/getadv/{advid}")
+//	Read the specific advertise by id
+
+	@GetMapping("/user/getadv/{advid}")
 	public Advertise getAdvertiseById(@PathVariable("advid") int advid) {
 		LOG.info("advertise");
 
 		return service.getAdvertiseById(advid);
 	}
 	
+//	
+	
 	
 	
 //	Update advertise product
-	@PutMapping("/updateadv")
+	@PutMapping("/user/updateadv")
 	public Advertise updateAdv(@RequestBody Advertise adv) {
 		LOG.info("updateProduct");
 		return service.updateAdvertise(adv);
@@ -86,9 +88,9 @@ public class AdvertiseController {
 //	}
 	
 //	Delete product by id
-	@DeleteMapping("/deleteadv/{advid}")
+	@DeleteMapping("/user/deleteadv/{advid}")
 	public void deleteAdv(@PathVariable int advid) {
-		LOG.info("deleteProduct");
+		LOG.info("deleteProduct-controller");
 		service.deleteAdvertise(advid);
 	}
 }

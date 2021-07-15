@@ -21,7 +21,8 @@ public class Category {
 	@Id
 //	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int catid;
-	@OneToMany(mappedBy="category",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+//	@OneToMany(mappedBy="category",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="category")
 	private List<Advertise> advertises;
 	
 	@Column(name = "catname", nullable = false, length = 20)

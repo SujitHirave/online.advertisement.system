@@ -85,8 +85,10 @@ public class AdvertiseService {
 
 //	Delete product by id
 	public void deleteAdvertise(int advid) {
-		LOG.info("deleteProduct");
+		LOG.info("deleteProduct-service");
+//		repository.deleteById(advid);
 		repository.deleteById(advid);
+	
 		
 	}
 

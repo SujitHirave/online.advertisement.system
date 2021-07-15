@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -40,12 +41,32 @@ public class UserController {
 		return service.registerUser(users);	
 	}
 //	edit user
-	@PutMapping("/edit_user")
+	@PutMapping("/user/edit_user")
 	public AppUser editUser(@RequestBody AppUser edit) {
 		LOG.info("updateUser");
 		return service.editUserProfile(edit);
 	}
 	
+//	View user details
+	@GetMapping("/admin/getAllUser")
+	public List<AppUser> getAllUser(){
+		LOG.info("ViewUsers");
+		return service.getAllUsers();
+	}
+	
+//	View user list
+	@GetMapping("/admin/getUserList")
+	public List<AppUser> getUserList(@RequestParam List<AppUser> username){
+		LOG.info("ViewUserList");
+		return service.getUsersList(username);
+	}
+	
+//	Delete User
+	@DeleteMapping("/admin/deleteuser/{userid}")
+	public void deleteUser(@PathVariable int userid) {
+		LOG.info("deleteUser-controller");
+		service.deleteAdvertise(userid);
+	}
 	
 	
 //	@GetMapping("/getAdvByName/{advertisetitle}")

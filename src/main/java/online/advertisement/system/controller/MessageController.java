@@ -30,8 +30,14 @@ public class MessageController {
 	@Autowired
 	private MessageService service;
 	
-	@PostMapping("/sendMessage")
-	public Message sendMsg (Message smsg ) {
+//	@PostMapping("/seller/sendMessage")
+//	public Message sendMsg (Message smsg ) {
+//		LOG.info("send message");
+//		return service.sendMessage(smsg);
+//	}
+//	
+	@PostMapping("/buyer/sendMessage")
+	public Message sendMsg1 (Message smsg ) {
 		LOG.info("send message");
 		return service.sendMessage(smsg);
 	}

@@ -114,11 +114,11 @@ public class AdvertiseService {
 		repository.updateStatusAdv(status, advid);
 	}
 
-//	Update posted advertise details (seller)
+//	User will update advertise details (seller)
 	public void updateAdvertise(int advid, String advertisetitle, double price, String description, String advownername,
 			int catid) {
 		LOG.info("updateProduct");
-		repository.addSellerAdv(advid, advertisetitle, price, description, advownername, catid);
+		repository.updateSellerAdv(advid, advertisetitle, price, description, advownername, catid);
 		
 	}
 

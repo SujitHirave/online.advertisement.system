@@ -48,21 +48,21 @@ public class UserController {
 	}
 	
 //	View user details
-	@GetMapping("/admin/getAllUser")
-	public List<AppUser> getAllUser(){
+	@GetMapping("/admin/getAllUserDetails")
+	public List<AppUser> getAllUserDetails(){
 		LOG.info("ViewUsers");
 		return service.getAllUsers();
 	}
 	
 //	View user list
 	@GetMapping("/admin/getUserList")
-	public List<AppUser> getUserList(@RequestParam List<AppUser> username){
+	public List<AppUser> getUserList(){
 		LOG.info("ViewUserList");
-		return service.getUsersList(username);
+		return service.getUsersList();
 	}
 	
 //	Delete User
-	@DeleteMapping("/admin/deleteuser/{userid}")
+	@DeleteMapping("/admin/deleteUser/{userid}")
 	public void deleteUser(@PathVariable int userid) {
 		LOG.info("deleteUser-controller");
 		service.deleteAdvertise(userid);

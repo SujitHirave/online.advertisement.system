@@ -51,8 +51,8 @@ public class AdvertiseController {
 //	}
 
 //	Post New Advertise(Selling)
-	@PostMapping("/user/seller/AddNewAdv")
-	public void addNewProduct( int advid, String advertisetitle, double price, String description,
+	@PostMapping("/user/seller/AddAdvertise")
+	public void addProduct( int advid, String advertisetitle, double price, String description,
 			String advownername, int catid) {
 		LOG.info("addproduct");
 		 service.addAdvertise(advid, advertisetitle, price, description, advownername, catid);
@@ -95,7 +95,7 @@ public class AdvertiseController {
 	
 	
 //	Read the specific advertise by id(seller)
-	@GetMapping("/user/seller/getAdv/{advid}")
+	@GetMapping("/user/seller/getadv/{advid}")
 	public Advertise getAdvertiseById(@PathVariable("advid") int advid) {
 		LOG.info("advertise");
 		return service.getAdvertiseById(advid);
@@ -105,8 +105,8 @@ public class AdvertiseController {
 	
 	
 	
-//	User will update or edit advertise details (seller)
-	@PutMapping("/user/seller/editAdv")
+//	Update posted advertise details (seller)
+	@PutMapping("/user/seller/updateAdvertise")
 	public void updateProduct( int advid, String advertisetitle, double price, String description,
 			String advownername, int catid) {
 		LOG.info("updateproduct");
@@ -123,7 +123,7 @@ public class AdvertiseController {
 //	}
 	
 //	Delete product by id
-	@DeleteMapping("/user/seller/deleteAdv/{advid}")
+	@DeleteMapping("/user/seller/deleteadv/{advid}")
 	public void deleteAdv(@PathVariable int advid) {
 		LOG.info("deleteProduct-controller");
 		service.deleteAdvertise(advid);

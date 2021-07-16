@@ -42,14 +42,14 @@ public class CategoryController {
 	private CategoryService service;
 
 // Add category	
-	@PostMapping("/admin/addCategory")
+	@PostMapping("/admin/addcategory")
 	public Category addCategory(@RequestBody Category cat) {
 		LOG.info("addproduct");
 		return service.addCategory(cat);
 	}
 	
 //	view Category
-	@GetMapping("/adminORuser/getAllCategory")
+	@GetMapping("/admin_user/getall")
 	private List<Category> getAllCat() {
 		LOG.info("ViewCategory");
 		return service.getAllCategory();
@@ -57,7 +57,7 @@ public class CategoryController {
 	
 
 //	Delete category by id
-	@DeleteMapping("/admin/deleteCategory/{catid}")
+	@DeleteMapping("/admin/deletecat/{catid}")
 	public void deleteCat(@PathVariable int catid) {
 		LOG.info("deleteCategory");
 		service.deleteCategory(catid);

@@ -18,12 +18,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<AppUser, Integer> {
 
-//	View user list
-	@Modifying
-	@Transactional
-	@Query( value = "SELECT * FROM user_adv u WHERE u.username = 'username' ", nativeQuery = true)
-	public abstract List<AppUser> viewUserList();
-
 	//List<Advertise> findByName(String advertisetitle);
 
 	//public abstract List<Advertise> findByName(String advertisetitle);

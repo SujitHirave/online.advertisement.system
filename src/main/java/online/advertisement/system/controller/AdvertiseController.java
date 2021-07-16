@@ -39,7 +39,7 @@ public class AdvertiseController {
 	private AdvertiseService service;
 
 //	Post New Advertise(Selling)
-	@PostMapping("/user/AddAdvertise")
+	@PostMapping("/user/seller/AddAdvertise")
 	public Advertise addProduct(@RequestBody Advertise adv) {
 		LOG.info("addproduct");
 		return service.addAdvertise(adv);

@@ -42,6 +42,20 @@ public class Advertise {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+
+	public Advertise(int advid, String advertisetitle, double price, String description, String status,
+			String advownername, Category category) {
+		super();
+		this.advid = advid;
+		this.advertisetitle = advertisetitle;
+		this.price = price;
+		this.description = description;
+		this.status = status;
+		this.advownername = advownername;
+		this.category = category;
+	}
+
 
 	public Advertise(int advid, Message message, String advertisetitle, double price, String description, String status,
 			String advownername, Category category) {
@@ -83,13 +97,13 @@ public class Advertise {
 		this.advid = advid;
 	}
 
-	public Message getMessage() {
-		return message;
-	}
-
-	public void setMessage(Message message) {
-		this.message = message;
-	}
+//	public Message getMessage() {
+//		return message;
+//	}
+//
+//	public void setMessage(Message message) {
+//		this.message = message;
+//	}
 
 	public String getAdvertisetitle() {
 		return advertisetitle;
@@ -141,7 +155,7 @@ public class Advertise {
 
 	@Override
 	public String toString() {
-		return "Advertise [advid=" + advid + ", message=" + message + ", advertisetitle=" + advertisetitle + ", price="
+		return "Advertise [advid=" + advid  + ", advertisetitle=" + advertisetitle + ", price="
 				+ price + ", description=" + description + ", status=" + status + ", advownername=" + advownername
 				+ ", category=" + category + "]";
 	}

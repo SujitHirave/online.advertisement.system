@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,6 +15,9 @@ public class AppUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userid;
+	@OneToOne(mappedBy="appUser")
+	private Message message;
+	
 	@Column(name = "username", nullable = false, length = 20)
 	private String username;
 	@Column(name = "address", nullable = false, length = 20)

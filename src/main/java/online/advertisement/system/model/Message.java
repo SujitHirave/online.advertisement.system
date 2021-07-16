@@ -44,6 +44,16 @@ public class Message {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+
+	public Message(int msgid, Advertise advertise, AppUser appUser, String textMessage) {
+		super();
+		this.msgid = msgid;
+		this.advertise = advertise;
+		this.appUser = appUser;
+		this.textMessage = textMessage;
+	}
+
 
 	public Message(int msgid, Advertise advertise, AppUser appUser, int sellerId, int buyerId, String textMessage) {
 		super();

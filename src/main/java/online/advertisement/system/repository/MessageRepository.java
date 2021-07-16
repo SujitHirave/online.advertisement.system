@@ -21,9 +21,9 @@ public interface MessageRepository extends JpaRepository<Message, Integer> {
 	@Modifying
 	@Transactional
 //	@Query("DELETE from Advertise a WHERE a.advid = :advid")
-	@Query(value = "insert into message_adv (userid, advid, textMessage) VALUES(:userids, :advids, :textMessagess) ", nativeQuery = true)
+	@Query(value = "INSERT INTO message_adv (msgid,userid, advid, text_message) VALUES(:msgid,:userid, :advid, :text_message) ", nativeQuery = true)
 	
-	Message inserted(int userid, int advid, String textMessage);
+	public abstract void  inserteds(int msgid,int userid, int advid, String text_message);
 	
 }
 

@@ -20,9 +20,9 @@ public class MessageService {
 	@Autowired
 	private MessageRepository repository;
 
-	public Message sendMessage(int userid, int advid, String textMessage) {
+	public void sendMessage(int msgid,int userid, int advid, String text_message) {
 		LOG.info("send message");
-		return repository.inserted(userid, advid, textMessage);
+		 repository.inserteds(msgid ,userid, advid, text_message);
 	}
 	
 //	public Message sendMessage(Message smsg) {

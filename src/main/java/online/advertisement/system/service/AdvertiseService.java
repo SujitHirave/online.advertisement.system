@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 
 import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.AppUser;
+import online.advertisement.system.model.Category;
+import online.advertisement.system.model.Message;
 import online.advertisement.system.repository.AdvertiseRepository;
 import online.advertisement.system.repository.UserRepository;
 
@@ -66,11 +68,19 @@ public class AdvertiseService {
 	}
 
 
-	public Advertise addAdvertise(Advertise adv) {
-		
-			LOG.info("addProduct");
-			return repository.save(adv);
-		}
+//	public Advertise addAdvertise(Advertise adv) {
+//		
+//			LOG.info("addProduct");
+//			return repository.save(adv);
+//		}
+	
+//	Post New Advertise(Selling)
+	public void addAdvertise(int advid, String advertisetitle, double price, String description,
+			String advownername, int catid) {
+		LOG.info("addProduct");
+		repository.addSellerAdv(advid, advertisetitle, price, description, advownername, catid);
+	}
+	
 	
 	public Advertise updateAdvertise(Advertise adv) {
 		LOG.info("updateProduct");
@@ -92,11 +102,33 @@ public class AdvertiseService {
 		
 	}
 
-
+//	show approved advertise for buyer
 	public List<Advertise> getApprovedAdvs() {
 		LOG.info("ApprovedAdvertise");
 		return repository.viewApprovedAdv();
 	}
+
+//	Admin will update status of advertise
+	public void updateAdvStatus(int advid, String status) {
+		LOG.info("UpdateStatus");
+		repository.updateStatusAdv(status, advid);
+	}
+
+//	Update posted advertise details (seller)
+	public void updateAdvertise(int advid, String advertisetitle, double price, String description, String advownername,
+			int catid) {
+		LOG.info("updateProduct");
+		repository.addSellerAdv(advid, advertisetitle, price, description, advownername, catid);
+		
+	}
+
+
+	
+
+	
+
+
+	
 
 
 	

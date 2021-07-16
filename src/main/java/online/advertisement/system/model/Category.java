@@ -27,6 +27,7 @@ public class Category {
 	
 	@Column(name = "catname", nullable = false, length = 20)
 	private String catname;
+	
 	@Column(name = "catdescription", nullable = false, length = 20)
 	private String catdescription;
 	

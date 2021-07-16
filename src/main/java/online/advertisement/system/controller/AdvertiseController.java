@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 import jdk.internal.org.jline.utils.Log;
 import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.AppUser;
+import online.advertisement.system.model.Category;
+import online.advertisement.system.model.Message;
 import online.advertisement.system.service.AdvertiseService;
 import online.advertisement.system.service.UserService;
 
@@ -37,52 +39,78 @@ public class AdvertiseController {
 
 	@Autowired
 	private AdvertiseService service;
+	
+	
+	
+
+//	Post New Advertise(Selling)
+//	@PostMapping("/user/seller/AddAdvertise")
+//	public Advertise addProduct(@RequestBody Advertise adv) {
+//		LOG.info("addproduct");
+//		return service.addAdvertise(adv);
+//	}
 
 //	Post New Advertise(Selling)
 	@PostMapping("/user/seller/AddAdvertise")
-	public Advertise addProduct(@RequestBody Advertise adv) {
+	public void addProduct( int advid, String advertisetitle, double price, String description,
+			String advownername, int catid) {
 		LOG.info("addproduct");
-		return service.addAdvertise(adv);
+		 service.addAdvertise(advid, advertisetitle, price, description, advownername, catid);
 	}
+	
+//	Admin will Read all advertises posted by user(for changing status)
+	@GetMapping("/admin/getAllAdv")
+	private List<Advertise> getAllAdvA(){
+		LOG.info("ViewAdvertises");
+		return service.getAllAdvertises();
+	}
+	
+//	Admin will update status of advertise
+	@PutMapping("/admin/updateStatus")
+	public void updateStatus(int advid, String status) {
+		LOG.info("updateStatus");
+		service.updateAdvStatus(advid, status);
+	}
+	
 
-//	show approved status of advertise
-	@GetMapping("/user/buyer/getAllAdv")
+//	show approved advertise for buyer
+	@GetMapping("/user/buyer/getAllApprovedAdv")
 	private List<Advertise> getApprovedAdv(){
 		LOG.info("ViewAdvertises");
 		return service.getApprovedAdvs();
 	}
 	
-//	Search Advertise by text entered in textbox(Buying)
-	@GetMapping("/user/getAdvByName/{advertisetitle}")
+//	Search Advertise by text entered in textbox(seller)
+	@GetMapping("/user/seller/getAdvByName/{advertisetitle}")
 	private List<Advertise> getAdvertise(@PathVariable("advertisetitle") String advertisetitle) {
 		return service.getAdvertiseByName(advertisetitle);
 	}
 	
-// Read all advertises posted by user
-	@GetMapping("/user/getAllAdv")
+// Read all advertises posted by seller
+	@GetMapping("/user/seller/getAllAdv")
 	private List<Advertise> getAllAdv(){
 		LOG.info("ViewAdvertises");
 		return service.getAllAdvertises();
 	}
 	
-//	Read the specific advertise by id
-
-	@GetMapping("/user/getadv/{advid}")
+	
+//	Read the specific advertise by id(seller)
+	@GetMapping("/user/seller/getadv/{advid}")
 	public Advertise getAdvertiseById(@PathVariable("advid") int advid) {
 		LOG.info("advertise");
-
 		return service.getAdvertiseById(advid);
 	}
 	
-//	
+
 	
 	
 	
-//	Update advertise product
-	@PutMapping("/user/updateadv")
-	public Advertise updateAdv(@RequestBody Advertise adv) {
-		LOG.info("updateProduct");
-		return service.updateAdvertise(adv);
+//	Update posted advertise details (seller)
+	@PutMapping("/user/seller/updateAdvertise")
+	public void updateProduct( int advid, String advertisetitle, double price, String description,
+			String advownername, int catid) {
+		LOG.info("updateproduct");
+		 service.updateAdvertise(advid, advertisetitle, price, description, advownername, catid);
 	}
 	
 	
@@ -95,7 +123,7 @@ public class AdvertiseController {
 //	}
 	
 //	Delete product by id
-	@DeleteMapping("/user/deleteadv/{advid}")
+	@DeleteMapping("/user/seller/deleteadv/{advid}")
 	public void deleteAdv(@PathVariable int advid) {
 		LOG.info("deleteProduct-controller");
 		service.deleteAdvertise(advid);

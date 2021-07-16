@@ -49,7 +49,7 @@ public class CategoryController {
 	}
 	
 //	view Category
-	@GetMapping("/user/getall")
+	@GetMapping("/admin_user/getall")
 	private List<Category> getAllCat() {
 		LOG.info("ViewCategory");
 		return service.getAllCategory();

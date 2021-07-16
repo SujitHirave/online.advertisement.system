@@ -2,6 +2,8 @@ package online.advertisement.system.repository;
 
 import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.AppUser;
+import online.advertisement.system.model.Category;
+import online.advertisement.system.model.Message;
 
 import java.util.List;
 
@@ -22,18 +24,34 @@ public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 
 	public abstract Advertise getByadvid(int advid);
 
+//	Delete product by id
 	@Modifying
 	@Transactional
 	@Query("DELETE from Advertise a WHERE a.advid = :advid")
 	public abstract void deleteById(int advid);
 
+//	show approved advertise for buyer
 	@Modifying
 	@Transactional
 	@Query( value = "SELECT * FROM advertise_adv WHERE status IN ( 'OPEN', 'APPROVED')", nativeQuery = true)
 	public abstract List<Advertise> viewApprovedAdv();
 
-//	public abstract String deleteByadvertisetitle(String advertisetitle);
+	
+//	Post New Advertise(Selling)
+	@Modifying
+	@Transactional
+	@Query(value = "INSERT INTO advertise_adv (advid, advertisetitle, price, description, advownername, catid) VALUES(:advid, :advertisetitle, :price, :description, :advownername, :catid) ", nativeQuery = true)
+	public abstract void addSellerAdv(int advid, String advertisetitle, double price, String description, String advownername, int catid);
 
-//	public abstract List<User> registerUser(String users);
+//	Admin will update status of advertise
+	@Modifying
+	@Transactional
+//	@Query(value = "UPDATE advertise_adv (advid, status) VALUES(:advid, :status)", nativeQuery = true)
+	@Query("UPDATE advertise_adv a SET a.status = :status  WHERE a.advid = :advid")
+	public abstract void updateStatusAdv(@Param(value = "status") String status, @Param(value = "advid") int advid);
+//	void updatePhone(@Param(value = "id") long id, @Param(value = "phone") String phone);
+//	public abstract void updateStatusAdv(int advid, String status);
+
+
 
 }

@@ -20,12 +20,16 @@ public class AppUser {
 	
 	@Column(name = "username", nullable = false, length = 20)
 	private String username;
-	@Column(name = "address", nullable = false, length = 20)
+	
+	@Column(name = "address",  length = 20)
 	private String address;
-	@Column(name = "contactno", nullable = false, length = 20)
+	
+	@Column(name = "contactno", length = 20)
 	private String contactno;
+	
 	@Column(name="email",nullable = false, unique = true, length = 45)
 	private String email;
+	
 	public AppUser() {
 		super();
 		// TODO Auto-generated constructor stub

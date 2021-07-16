@@ -23,15 +23,20 @@ public class Advertise {
 //	@OneToOne(mappedBy="advertise",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	@OneToOne(mappedBy="advertise")
 	private Message message;
+	
 	@Column
 	private String advertisetitle;
-	@Column(name = "price", nullable = false, length = 10)
+	
+	@Column(name = "price",  length = 10)
 	private double price;
-	@Column(name = "description", nullable = false, length = 40)
+	
+	@Column(name = "description", length = 40)
 	private String description;
-	@Column(name = "status", nullable = false, length = 10)
+	
+	@Column(name = "status", length = 10)
 	private String status;
-	@Column(name = "advownername", nullable = false, length = 20)
+	
+	@Column(name = "advownername",  length = 20)
 	private String advownername;
 
 	@ManyToOne
@@ -44,14 +49,12 @@ public class Advertise {
 	}
 	
 
-	public Advertise(int advid, String advertisetitle, double price, String description, String status,
-			String advownername, Category category) {
+	public Advertise(int advid, String advertisetitle, double price, String description, String advownername, Category category) {
 		super();
 		this.advid = advid;
 		this.advertisetitle = advertisetitle;
 		this.price = price;
 		this.description = description;
-		this.status = status;
 		this.advownername = advownername;
 		this.category = category;
 	}
@@ -84,10 +87,14 @@ public class Advertise {
 		this.category = category;
 	}
 
-	public Advertise(String status) {
+	
+
+	public Advertise(int advid, String status) {
 		super();
+		this.advid = advid;
 		this.status = status;
 	}
+
 
 	public int getAdvid() {
 		return advid;

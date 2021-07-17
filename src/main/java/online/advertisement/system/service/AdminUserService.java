@@ -11,35 +11,38 @@ import org.springframework.stereotype.Service;
 
 import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.AppUser;
-import online.advertisement.system.repository.UserRepository;
+import online.advertisement.system.repository. AdminUserRepository;
 
 
 @Service
-public class UserService {
+public class AdminUserService {
 
-	private static final Logger LOG = LoggerFactory.getLogger(UserService.class);
+	private static final Logger LOG = LoggerFactory.getLogger(AdminUserService.class);
 
 	@Autowired
-	private UserRepository repository;
+	private  AdminUserRepository repository;
 
-	public AppUser registerUser(AppUser users) {
-		LOG.info("RegisterUser");
-		return repository.save(users);
-	}
-
-	public AppUser editUserProfile(AppUser edit) {
+	
+	
+//	edit user
+	public  AppUser editUserProfile(AppUser edit) {
 		LOG.info("UpdateUser");
-		return repository.save(edit);
+		
+			return repository.save(edit);
+		
 	}
-
+	
+	
+//	View user details
 	public List<AppUser> getAllUsers() {
 		LOG.info("ViewAllUsers");
 		return repository.findAll();
 	}
 
-	public void deleteAdvertise(int userid) {
+//	Delete User
+	public void deleteUser(int userid) {
 		LOG.info("deleteUser-service");
-		repository.deleteById(userid);
+		 repository.deleteById(userid);
 	
 		
 	}
@@ -47,7 +50,7 @@ public class UserService {
 //	View user list
 	public List<AppUser> getUsersList() {
 		LOG.info("viewUserList");
-		 return repository.findByusername();
+		 return repository.viewUserList();
 	}
 
 //	public Advertise findReadAdvertiseById(int catid) {

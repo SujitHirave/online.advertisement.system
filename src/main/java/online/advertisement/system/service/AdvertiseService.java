@@ -17,7 +17,7 @@ import online.advertisement.system.model.AppUser;
 import online.advertisement.system.model.Category;
 import online.advertisement.system.model.Message;
 import online.advertisement.system.repository.AdvertiseRepository;
-import online.advertisement.system.repository.UserRepository;
+//import online.advertisement.system.repository.UserRepository;
 
 
 @Service

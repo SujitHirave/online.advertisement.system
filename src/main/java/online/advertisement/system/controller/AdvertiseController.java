@@ -25,7 +25,7 @@ import online.advertisement.system.model.AppUser;
 import online.advertisement.system.model.Category;
 import online.advertisement.system.model.Message;
 import online.advertisement.system.service.AdvertiseService;
-import online.advertisement.system.service.UserService;
+import online.advertisement.system.service.AppUserService;
 
 //import com.cg.spring.boot.demo.model.User;//
 //import com.cg.spring.boot.demo.service.UserService;

@@ -16,17 +16,17 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface UserRepository extends JpaRepository<AppUser, Integer> {
+public interface AdminUserRepository extends JpaRepository<AppUser, Integer> {
 
 //	View user list
 	@Modifying
 	@Transactional
-	@Query( value = "SELECT u FROM user_adv  WHERE u.username = :username ", nativeQuery = true)
-	public abstract List<AppUser> findByusername();
-
-	//List<Advertise> findByName(String advertisetitle);
-
-	//public abstract List<Advertise> findByName(String advertisetitle);
-
-//	public abstract List<User> registerUser(String users);
+	@Query( value = "SELECT * FROM user_adv u WHERE u.username = 'username' ", nativeQuery = true)
+	public abstract List<AppUser> viewUserList();
+	
+//	Delete user by id
+	@Modifying
+	@Transactional
+	@Query("DELETE from AppUser a WHERE a.userid = :userid")
+	public abstract void deleteById(int userid);
 }

@@ -10,8 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-
+import online.advertisement.system.exception.AdvertiseNotFoundException;
+import online.advertisement.system.exception.CategoryNotFoundException;
 import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.AppUser;
 import online.advertisement.system.model.Category;
@@ -86,5 +86,17 @@ public class AdvertiseService {
 		LOG.info("ApprovedAdvertise");
 		return repository.viewApprovedAdv();
 	}
-	
+
+
+//	 method that works with custom exception	
+	public Advertise findAdvertiseByadvertisetitle(String advertisetitle) {
+		LOG.info("findAdvertiseByadvertisetitle");
+		Optional<Advertise> optAdv = repository.findByAdvertisetitle(advertisetitle);
+		if (optAdv.isEmpty())
+			throw new AdvertiseNotFoundException();
+		else
+			return optAdv.get();
 	}
+}
+	
+	

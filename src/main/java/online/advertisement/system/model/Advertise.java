@@ -27,7 +27,7 @@ public class Advertise {
 	@OneToOne(mappedBy="advertise")
 	private Message message;
 	
-	@Column
+	@Column(name = "advertisetitle", length = 50)
 	private String advertisetitle;
 	
 	@Column(name = "price",  length = 10)

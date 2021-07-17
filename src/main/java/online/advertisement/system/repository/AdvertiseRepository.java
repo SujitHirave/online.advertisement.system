@@ -6,6 +6,7 @@ import online.advertisement.system.model.Category;
 import online.advertisement.system.model.Message;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -61,6 +62,10 @@ public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 	public abstract void updateStatusAdv(@Param(value = "status") String status, @Param(value = "advid") int advid);
 //	void updatePhone(@Param(value = "id") long id, @Param(value = "phone") String phone);
 //	public abstract void updateStatusAdv(int advid, String status);
+
+	
+	
+	public abstract Optional<Advertise> findByAdvertisetitle(String advertisetitle);
 
 
 }

@@ -23,5 +23,16 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler{
 		
 
 	}
+	
+//	when a AdvertiseNotFoundException is thrown, then this method is used to catch
+	@ExceptionHandler(AdvertiseNotFoundException.class)
+	
+	public final ResponseEntity<Object> handleAdvertiseNotFoundException() {
+		LOG.error("handleAdvertiseNotFoundException");
+
+		return new ResponseEntity<Object>(null, HttpStatus.NOT_FOUND);
+		
+
+	}
 
 }

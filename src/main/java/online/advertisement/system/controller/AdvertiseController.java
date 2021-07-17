@@ -40,22 +40,20 @@ public class AdvertiseController {
 	@Autowired
 	private AdvertiseService service;
 	
-	
-	
 
 //	Post New Advertise(Selling)
-//	@PostMapping("/user/seller/AddAdvertise")
-//	public Advertise addProduct(@RequestBody Advertise adv) {
-//		LOG.info("addproduct");
-//		return service.addAdvertise(adv);
-//	}
-
-//	Post New Advertise(Selling)
-	@PostMapping("/user/seller/AddAdvertise")
-	public void addProduct( int advid, String advertisetitle, double price, String description,
-			String advownername, int catid) {
+	@PostMapping("/user/seller/AddNewAdv")
+	public void addNewProduct(int advid, String advertisetitle, double price, String description,String advownername, int catid) {
 		LOG.info("addproduct");
 		 service.addAdvertise(advid, advertisetitle, price, description, advownername, catid);
+	}
+	
+	
+//	User will update or edit advertise details (seller)
+	@PutMapping("/user/seller/editAdv")
+	public void updateProduct(int advid, String advertisetitle, double price, String description,String advownername, int catid) {
+		LOG.info("updateproduct");
+		 service.updateAdvertise(advid, advertisetitle, price, description, advownername, catid);
 	}
 	
 //	Admin will Read all advertises posted by user(for changing status)
@@ -95,7 +93,7 @@ public class AdvertiseController {
 	
 	
 //	Read the specific advertise by id(seller)
-	@GetMapping("/user/seller/getadv/{advid}")
+	@GetMapping("/user/seller/getAdv/{advid}")
 	public Advertise getAdvertiseById(@PathVariable("advid") int advid) {
 		LOG.info("advertise");
 		return service.getAdvertiseById(advid);
@@ -104,14 +102,7 @@ public class AdvertiseController {
 
 	
 	
-	
-//	Update posted advertise details (seller)
-	@PutMapping("/user/seller/updateAdvertise")
-	public void updateProduct( int advid, String advertisetitle, double price, String description,
-			String advownername, int catid) {
-		LOG.info("updateproduct");
-		 service.updateAdvertise(advid, advertisetitle, price, description, advownername, catid);
-	}
+
 	
 	
 	
@@ -123,7 +114,7 @@ public class AdvertiseController {
 //	}
 	
 //	Delete product by id
-	@DeleteMapping("/user/seller/deleteadv/{advid}")
+	@DeleteMapping("/user/seller/deleteAdv/{advid}")
 	public void deleteAdv(@PathVariable int advid) {
 		LOG.info("deleteProduct-controller");
 		service.deleteAdvertise(advid);

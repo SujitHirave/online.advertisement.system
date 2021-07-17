@@ -44,9 +44,10 @@ public class UserService {
 		
 	}
 
-	public List<AppUser> getUsersList(List<AppUser> username) {
+//	View user list
+	public List<AppUser> getUsersList() {
 		LOG.info("viewUserList");
-		return repository.findAll();
+		 return repository.findByusername();
 	}
 
 //	public Advertise findReadAdvertiseById(int catid) {

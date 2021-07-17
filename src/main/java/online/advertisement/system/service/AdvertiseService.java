@@ -28,77 +28,56 @@ public class AdvertiseService {
 	@Autowired
 	private AdvertiseRepository repository;
 
-//	public Advertise findReadAdvertiseById(int catid) {
-//		LOG.info("findEmployeeById");
-//		return repository.findById(catid).get();	
-//
-//	}
-
-//	public User registerUser(User users) {
-//		LOG.info("addUser");
-//		return repository.save(users);
-//	}
-
-//	public Advertise findReadAdvertiseById(int catid) {
-//		
-//			LOG.info("findAdvertiseById");
-//			return repository.findById(catid).get();	
-//			
-//	}
-
-//	public List<Advertise> getAdvertiseByName(String advertisetitle) {
-//		LOG.info("findAdvertiseById");
-//		return repository.findById(catid).get();	
-//	}
-
+//	Search Advertise by text entered in textbox(seller)
 	public List<Advertise> getAdvertiseByName(String advertisetitle) {
 		LOG.info("findAdvertiseByName");
 		return repository.findByadvertisetitle(advertisetitle);
 	}
 	
-
+//	Admin will Read all advertises posted by user(for changing status)
 	public List<Advertise> getAllAdvertises() {
 		LOG.info("ViewAllAdvertises");
 		return repository.findAll();
 	}
 	
+	
+//	Read the specific advertise by id(seller)
 	public Advertise getAdvertiseById(int advid) {
 		LOG.info("Advertise");
 		return repository.getByadvid(advid);
 	}
 
-
-//	public Advertise addAdvertise(Advertise adv) {
-//		
-//			LOG.info("addProduct");
-//			return repository.save(adv);
-//		}
 	
 //	Post New Advertise(Selling)
-	public void addAdvertise(int advid, String advertisetitle, double price, String description,
-			String advownername, int catid) {
+	public void addAdvertise(int advid, String advertisetitle, double price, String description,String advownername, int catid) {
 		LOG.info("addProduct");
 		repository.addSellerAdv(advid, advertisetitle, price, description, advownername, catid);
 	}
 	
-	
-	public Advertise updateAdvertise(Advertise adv) {
+//	User will update advertise details (seller)
+	public void updateAdvertise(int advid, String advertisetitle, double price, String description, String advownername,int catid) {
 		LOG.info("updateProduct");
-		return repository.save(adv);
+		repository.updateSellerAdv(advertisetitle, price, description, advownername, catid,advid);	
 	}
+	
 
-//	public String deleteAdvertise(String advertisetitle) {
-//		LOG.info("deleteProduct");
-//		repository.deleteByadvertisetitle(advertisetitle);
-//		return advertisetitle;
+//	Admin will update status of advertise
+	public void updateAdvStatus(int advid, String status) {
+		LOG.info("UpdateStatus");
+		repository.updateStatusAdv(status, advid);
+	}
+	
+//	public Advertise updateAdvertise(Advertise adv) {
+//		LOG.info("updateProduct");
+//		return repository.save(adv);
 //	}
+
 
 //	Delete product by id
 	public void deleteAdvertise(int advid) {
 		LOG.info("deleteProduct-service");
 //		repository.deleteById(advid);
 		repository.deleteById(advid);
-	
 		
 	}
 
@@ -107,37 +86,5 @@ public class AdvertiseService {
 		LOG.info("ApprovedAdvertise");
 		return repository.viewApprovedAdv();
 	}
-
-//	Admin will update status of advertise
-	public void updateAdvStatus(int advid, String status) {
-		LOG.info("UpdateStatus");
-		repository.updateStatusAdv(status, advid);
+	
 	}
-
-//	Update posted advertise details (seller)
-	public void updateAdvertise(int advid, String advertisetitle, double price, String description, String advownername,
-			int catid) {
-		LOG.info("updateProduct");
-		repository.addSellerAdv(advid, advertisetitle, price, description, advownername, catid);
-		
-	}
-
-
-	
-
-	
-
-
-	
-
-
-	
-
-	
-
-	
-	
-		
-	}
-	
-	

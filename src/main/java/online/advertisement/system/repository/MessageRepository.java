@@ -26,4 +26,3 @@ public interface MessageRepository extends JpaRepository<Message, Integer> {
 	public abstract void  inserteds(int msgid,int userid, int advid, String text_message);
 	
 }
-

@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -14,7 +15,9 @@ import javax.persistence.Table;
 public class Message {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "msgid")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "msgid_generator")
+	@SequenceGenerator(name = "msgid_generator", initialValue = 301, allocationSize = 1, sequenceName = "msgId_seq")
 	private int msgid;
 	
 //	private int id; // messageId 
@@ -96,21 +99,21 @@ public class Message {
 		this.appUser = appUser;
 	}
 
-	public int getSellerId() {
-		return sellerId;
-	}
+//	public int getSellerId() {
+//		return sellerId;
+//	}
+//
+//	public void setSellerId(int sellerId) {
+//		this.sellerId = sellerId;
+//	}
 
-	public void setSellerId(int sellerId) {
-		this.sellerId = sellerId;
-	}
-
-	public int getBuyerId() {
-		return buyerId;
-	}
-
-	public void setBuyerId(int buyerId) {
-		this.buyerId = buyerId;
-	}
+//	public int getBuyerId() {
+//		return buyerId;
+//	}
+//
+//	public void setBuyerId(int buyerId) {
+//		this.buyerId = buyerId;
+//	}
 
 	public String getTextMessage() {
 		return textMessage;

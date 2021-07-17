@@ -6,6 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -18,7 +19,9 @@ import javax.persistence.Table;
 public class Advertise {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "advid")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "advid_generator")
+	@SequenceGenerator(name = "advid_generator", initialValue = 201, allocationSize = 1, sequenceName = "advId_seq")
 	private int advid;
 //	@OneToOne(mappedBy="advertise",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	@OneToOne(mappedBy="advertise")
@@ -87,7 +90,15 @@ public class Advertise {
 		this.category = category;
 	}
 
-	
+//	public Advertise(String advertisetitle, double price, String description, String advownername, Category category) {
+//		super();
+//		this.advertisetitle = advertisetitle;
+//		this.price = price;
+//		this.description = description;
+//		this.advownername = advownername;
+//		this.category = category;
+//	}
+
 
 	public Advertise(int advid, String status) {
 		super();

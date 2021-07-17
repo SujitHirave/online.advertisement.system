@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -13,8 +14,11 @@ import javax.persistence.Table;
 public class AppUser {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "userid")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "userid_generator")
+	@SequenceGenerator(name = "userid_generator", initialValue = 101, allocationSize = 1, sequenceName = "userId_seq")
 	private int userid;
+	
 	@OneToOne(mappedBy="appUser")
 	private Message message;
 	

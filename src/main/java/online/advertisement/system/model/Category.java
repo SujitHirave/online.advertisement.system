@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
@@ -17,9 +18,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "category_adv")
 public class Category {
-
 	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "catid")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "catid_generator")
+	@SequenceGenerator(name = "catid_generator", initialValue = 1, allocationSize = 1, sequenceName = "catId_seq")
 	private int catid;
 //	@OneToMany(mappedBy="category",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	@OneToMany(mappedBy="category")

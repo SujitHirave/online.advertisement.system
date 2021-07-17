@@ -48,7 +48,7 @@ public class AdminUserService {
 	}
 
 //	View user list
-	public List<AppUser> getUsersList() {
+	public List<String> getUsersList() {
 		LOG.info("viewUserList");
 		 return repository.viewUserList();
 	}

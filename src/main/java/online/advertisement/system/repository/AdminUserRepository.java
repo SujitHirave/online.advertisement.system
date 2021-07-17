@@ -19,10 +19,16 @@ import org.springframework.stereotype.Repository;
 public interface AdminUserRepository extends JpaRepository<AppUser, Integer> {
 
 //	View user list
+//	@Modifying
+//	@Transactional
+//	@Query( value = "SELECT * FROM user_adv u WHERE u.username = 'username' ", nativeQuery = true)
+//	public abstract List<AppUser> viewUserList();
+	
+//	View user list
 	@Modifying
 	@Transactional
-	@Query( value = "SELECT * FROM user_adv u WHERE u.username = 'username' ", nativeQuery = true)
-	public abstract List<AppUser> viewUserList();
+	@Query( value = "SELECT username FROM user_adv", nativeQuery = true)
+	public abstract List<String> viewUserList();
 	
 //	Delete user by id
 	@Modifying

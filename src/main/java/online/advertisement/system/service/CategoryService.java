@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import online.advertisement.system.exception.CategoryNotFoundException;
 import online.advertisement.system.model.Category;
 //import online.advertisement.system.repository.AdvertiseRepository;
 import online.advertisement.system.repository.CategoryRepository;
@@ -36,6 +37,17 @@ public class CategoryService {
 		LOG.info("deleteCategory");
 		repository.deleteById(catid);
 		
+	}
+	
+
+//	 method that works with custom exception
+	public Category findCategoryBycatid(int catid) {
+		LOG.info("findCategoryById");
+		Optional<Category> optCat = repository.findBycatid(catid);
+		if (optCat.isEmpty())
+			throw new CategoryNotFoundException();
+		else
+			return optCat.get();
 	}
 
 }

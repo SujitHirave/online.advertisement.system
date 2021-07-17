@@ -55,6 +55,26 @@ public class CategoryController {
 		return service.getAllCategory();
 	}
 	
+//	@GetMapping("/getcatbyname/{catname}")
+//	public List<Category> getCatBycatname(@PathVariable("catname") String catname) {
+//		LOG.info("getEmpByEname");
+//		return service.findCategoryBycatname( catname);
+//	}
+	
+//	 method that returns ResponseEntity
+	@GetMapping("/getCategory/{catid}")
+	public ResponseEntity<Category> getCategoryBycatid(@PathVariable("catid") int catid) {
+		LOG.info("getcat");
+		Category cat = service.findCategoryBycatid(catid);
+		HttpHeaders headers = new HttpHeaders();
+		if (cat != null) {
+			headers.add("Category name", cat.getCatname());
+			return new ResponseEntity<Category>(cat, headers, HttpStatus.OK);
+		} else {
+			headers.add("Category name", "Name not available");
+			return new ResponseEntity<Category>(cat, headers, HttpStatus.NOT_FOUND);
+		}
+	}
 
 //	Delete category by id
 	@DeleteMapping("/admin/deleteCategory/{catid}")

@@ -54,14 +54,14 @@ public class AdminUserController {
 	}
 	
 ////	View user list
-//	@GetMapping("/admin/getUserList")
-//	public List<AppUser> getUserList(){
-//		LOG.info("ViewUserList");
-//		if (appUserService.loginStatus().getRole().toString().equals("USER"))
-//			return service.getUsersList();
-//		return null;
-//		
-//	}
+	@GetMapping("/admin/getUserList")
+	public List<String> getUserList(){
+		LOG.info("ViewUserList");
+		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
+			return service.getUsersList();
+		return null;
+	
+	}
 	
 	
 	

@@ -13,15 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import jdk.internal.org.jline.utils.Log;
 import online.advertisement.system.model.Advertise;
-import online.advertisement.system.model.AppUser;
-import online.advertisement.system.model.Category;
-import online.advertisement.system.model.Message;
 import online.advertisement.system.service.AdvertiseService;
 import online.advertisement.system.service.AppUserService;
 

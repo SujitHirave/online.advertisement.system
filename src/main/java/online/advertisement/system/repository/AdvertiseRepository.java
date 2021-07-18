@@ -1,15 +1,9 @@
 package online.advertisement.system.repository;
 
 import online.advertisement.system.model.Advertise;
-import online.advertisement.system.model.AppUser;
-import online.advertisement.system.model.Category;
-import online.advertisement.system.model.Message;
-
 import java.util.List;
 import java.util.Optional;
-
 import javax.transaction.Transactional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -43,8 +37,6 @@ public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 	@Query(value = "INSERT INTO advertise_adv (advid, advertisetitle, price, description, advownername, catid) VALUES(:advid, :advertisetitle, :price, :description, :advownername, :catid) ", nativeQuery = true)
 	public abstract void addSellerAdv(int advid, String advertisetitle, double price, String description,
 			String advownername, int catid);
-//	@Query(value = "INSERT INTO advertise_adv (advid, advertisetitle, price, description, advownername, catid) VALUES(:advid, :advertisetitle, :price, :description, :advownername, :catid) ", nativeQuery = true)
-//	public abstract void addSellerAdv(int advid, String advertisetitle, double price, String description, String advownername, int catid);
 
 //	User will update advertise details (seller)
 	@Modifying
@@ -58,12 +50,8 @@ public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 //	Admin will update status of advertise
 	@Modifying
 	@Transactional
-//	@Query(value = "UPDATE advertise_adv (advid, status) VALUES(:advid, :status)", nativeQuery = true)
 	@Query("UPDATE Advertise a SET a.status = :status  WHERE a.advid = :advid")
 	public abstract void updateStatusAdv(@Param(value = "status") String status, @Param(value = "advid") int advid);
-//	void updatePhone(@Param(value = "id") long id, @Param(value = "phone") String phone);
-//	public abstract void updateStatusAdv(int advid, String status);
-
 	public abstract Optional<Advertise> findByAdvertisetitle(String advertisetitle);
 
 }

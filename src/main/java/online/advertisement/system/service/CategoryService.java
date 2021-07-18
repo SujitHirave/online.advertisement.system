@@ -1,17 +1,13 @@
 package online.advertisement.system.service;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import online.advertisement.system.exception.CategoryNotFoundException;
 import online.advertisement.system.model.Category;
-//import online.advertisement.system.repository.AdvertiseRepository;
 import online.advertisement.system.repository.CategoryRepository;
 
 @Service
@@ -28,17 +24,12 @@ public class CategoryService {
 
 	}
 
-//	view Category
+//	View Category
 	public List<Category> getAllCategory() {
 		LOG.info("ViewCategory");
 		return repository.findAll();
 	}
 
-//	Find category by category name
-//	public List<Category> findCategoryBycatname(String catname) {
-//		LOG.info("FindCategory");
-//		return repository.findAll(catname);
-//	}
 
 //	Delete category by id
 	public void deleteCategory(int catid) {
@@ -47,7 +38,7 @@ public class CategoryService {
 
 	}
 
-//	 method that works with custom exception
+//	 Method that works with custom exception
 	public Category findCategoryBycatid(int catid) {
 		LOG.info("findCategoryById");
 		Optional<Category> optCat = repository.findBycatid(catid);

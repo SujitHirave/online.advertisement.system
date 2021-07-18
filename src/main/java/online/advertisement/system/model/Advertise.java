@@ -1,14 +1,11 @@
 package online.advertisement.system.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -48,7 +45,6 @@ public class Advertise {
 
 	public Advertise() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Advertise(int advid, String advertisetitle, double price, String description, String advownername,
@@ -87,14 +83,6 @@ public class Advertise {
 		this.category = category;
 	}
 
-//	public Advertise(String advertisetitle, double price, String description, String advownername, Category category) {
-//		super();
-//		this.advertisetitle = advertisetitle;
-//		this.price = price;
-//		this.description = description;
-//		this.advownername = advownername;
-//		this.category = category;
-//	}
 
 	public Advertise(int advid, String status) {
 		super();

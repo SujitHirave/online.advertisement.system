@@ -20,12 +20,6 @@ public class Message {
 	@SequenceGenerator(name = "msgid_generator", initialValue = 301, allocationSize = 1, sequenceName = "msgId_seq")
 	private int msgid;
 
-//	private int id; // messageId 
-//	private int sellerId; 
-//	private int buyerId;
-//	private int advId;
-//	private String messageText;
-
 	@OneToOne
 	@JoinColumn(name = "advid")
 	private Advertise advertise;
@@ -34,10 +28,10 @@ public class Message {
 	@JoinColumn(name = "userid")
 	private AppUser appUser;
 
-	@Column(name = "sellerId", length = 20)
+	@Column(name = "sellerId")
 	private int sellerId;
 
-	@Column(name = "buyerId", length = 20)
+	@Column(name = "buyerId")
 	private int buyerId;
 
 	@Column(name = "textMessage", nullable = false, length = 60)
@@ -45,7 +39,6 @@ public class Message {
 
 	public Message() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Message(int msgid, Advertise advertise, AppUser appUser, String textMessage) {
@@ -97,21 +90,6 @@ public class Message {
 		this.appUser = appUser;
 	}
 
-//	public int getSellerId() {
-//		return sellerId;
-//	}
-//
-//	public void setSellerId(int sellerId) {
-//		this.sellerId = sellerId;
-//	}
-
-//	public int getBuyerId() {
-//		return buyerId;
-//	}
-//
-//	public void setBuyerId(int buyerId) {
-//		this.buyerId = buyerId;
-//	}
 
 	public String getTextMessage() {
 		return textMessage;

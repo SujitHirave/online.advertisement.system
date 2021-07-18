@@ -1,7 +1,6 @@
 package online.advertisement.system.controller;
 
 import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,27 +11,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.Category;
 import online.advertisement.system.service.AppUserService;
 import online.advertisement.system.service.CategoryService;
 
-//
-//import online.advertisement.system.model.Advertise;
-//import online.advertisement.system.model.AppUser;
-//import online.advertisement.system.model.Category;
-//import online.advertisement.system.service.CategoryService;
-//import online.advertisement.system.service.AdvertiseService;
-//import online.advertisement.system.service.UserService;
-
-//import com.cg.spring.boot.demo.model.User;//
-//import com.cg.spring.boot.demo.service.UserService;
-
-//@RestController("/user")
 @RestController
 public class CategoryController {
 
@@ -44,17 +28,17 @@ public class CategoryController {
 	@Autowired
 	AppUserService appUserService;
 
-// Add category	
+// Admin can add category
 	@PostMapping("/admin/addCategory")
 	public Category addCategory(@RequestBody Category cat) {
-		LOG.info("addproduct");
+		LOG.info("addcategory");
 		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
 			return service.addCategory(cat);
 		return null;
 	}
 
-//	view Category
-	@GetMapping("/adminORuser/getAllCategory")
+//	Admin and user can view category
+	@GetMapping("/adminAnduser/getAllCategory")
 	private List<Category> getAllCat() {
 		LOG.info("ViewCategory");
 		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
@@ -62,16 +46,8 @@ public class CategoryController {
 		return null;
 	}
 
-//	Find category by category name
-//	@GetMapping("/getcatbyname/{catname}")
-//	public List<Category> getCatBycatname(@PathVariable("catname") String catname) {
-//		LOG.info("getEmpByEname");
-//		if (appUserService.loginStatus().getRole().toString().equals("USER"))
-//		return service.findCategoryBycatname( catname);
-//		return null;
-//	}
-
-//	 method that returns ResponseEntity
+//	Admin and user can view category by category id
+	
 	@GetMapping("/getCategory/{catid}")
 	public ResponseEntity<Category> getCategoryBycatid(@PathVariable("catid") int catid) {
 		LOG.info("getcat");
@@ -86,7 +62,7 @@ public class CategoryController {
 		}
 	}
 
-//	Delete category by id
+//	Admin can delete a category by category id
 	@DeleteMapping("/admin/deleteCategory/{catid}")
 	public void deleteCat(@PathVariable int catid) {
 		LOG.info("deleteCategory");

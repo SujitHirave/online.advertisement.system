@@ -25,8 +25,6 @@ import online.advertisement.system.model.Message;
 import online.advertisement.system.service.AdvertiseService;
 import online.advertisement.system.service.AppUserService;
 
-//import com.cg.spring.boot.demo.model.User;//
-//import com.cg.spring.boot.demo.service.UserService;
 
 //@RestController("/user")
 @RestController
@@ -40,7 +38,7 @@ public class AdvertiseController {
 	@Autowired
 	AppUserService appUserService;
 
-//	Post New Advertise(Selling)
+//	To post advertise
 	@PostMapping("/user/seller/AddNewAdv")
 	public void addNewProduct(int advid, String advertisetitle, double price, String description, String advownername,
 			int catid) {
@@ -49,7 +47,7 @@ public class AdvertiseController {
 			service.addAdvertise(advid, advertisetitle, price, description, advownername, catid);
 	}
 
-//	User will update or edit advertise details (seller)
+//	Seller can edit or update his advertise details 
 	@PutMapping("/user/seller/editAdv")
 	public void updateProduct(int advid, String advertisetitle, double price, String description, String advownername,
 			int catid) {
@@ -59,7 +57,7 @@ public class AdvertiseController {
 
 	}
 
-//	Admin will Read all advertises posted by user(for changing status)
+//	Admin can view all the advertises posted by the seller for changing the status 
 	@GetMapping("/admin/getAllAdv")
 	private List<Advertise> getAllAdvA() {
 		LOG.info("ViewAdvertises");
@@ -68,7 +66,7 @@ public class AdvertiseController {
 		return null;
 	}
 
-//	Admin will update status of advertise
+//	Admin can update the status posted by the seller
 	@PutMapping("/admin/updateStatus")
 	public void updateStatus(int advid, String status) {
 		LOG.info("updateStatus");
@@ -76,7 +74,7 @@ public class AdvertiseController {
 			service.updateAdvStatus(advid, status);
 	}
 
-//	show approved advertise for buyer
+//	Buyer can view all the approved advertises posted by the seller
 	@GetMapping("/user/buyer/getAllApprovedAdv")
 	private List<Advertise> getApprovedAdv() {
 		LOG.info("ViewAdvertises");
@@ -91,8 +89,8 @@ public class AdvertiseController {
 //		return service.getAdvertiseByName(advertisetitle);
 //	}
 
-//	 method that returns ResponseEntity
-	@GetMapping("/user/seller/getAdvertise/{advertisetitle}")
+//	Buyer can also search for advertises by advertisetitle
+	@GetMapping("/user/buyer/getAdvertise/{advertisetitle}")
 	public ResponseEntity<Advertise> getAdvertiseByadvertisetitle(
 			@PathVariable("advertisetitle") String advertisetitle) {
 		LOG.info("getadv");
@@ -107,8 +105,8 @@ public class AdvertiseController {
 		}
 	}
 
-// Read all advertises posted by seller
-	@GetMapping("/user/seller/getAllAdv")
+// Buyer can view all the advertises posted by the seller
+	@GetMapping("/user/buyer/getAllAdv")
 	private List<Advertise> getAllAdv() {
 		LOG.info("ViewAdvertises");
 		if (appUserService.loginStatus().getRole().toString().equals("USER"))
@@ -116,7 +114,7 @@ public class AdvertiseController {
 		return null;
 	}
 
-//	Read the specific advertise by id(seller)
+//	Buyer can view the specific advertise  by id posted by seller
 	@GetMapping("/user/seller/getAdv/{advid}")
 	public Advertise getAdvertiseById(@PathVariable("advid") int advid) {
 		LOG.info("advertise");
@@ -125,17 +123,11 @@ public class AdvertiseController {
 		return null;
 	}
 
-////	For deleting Products
-//	@DeleteMapping("deleteadv/{advertisetitle}")
-//	public String deleteAdv(@PathVariable("advertisetitle") String advertisetitle) {
-//		LOG.info("deleteProduct");
-//		return service.deleteAdvertise(advertisetitle);
-//	}
 
-//	Delete product by id
+//	Seller can delete his posted advertise 
 	@DeleteMapping("/user/seller/deleteAdv/{advid}")
 	public void deleteAdv(@PathVariable int advid) {
-		LOG.info("deleteProduct-controller");
+		LOG.info("deleteadvertise");
 		if (appUserService.loginStatus().getRole().toString().equals("USER"))
 			service.deleteAdvertise(advid);
 	}

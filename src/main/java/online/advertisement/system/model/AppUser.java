@@ -37,9 +37,6 @@ public class AppUser {
 	@OneToOne(mappedBy = "appUser")
 	private Message message;
 
-//	@Column(name = "username", nullable = false, length = 20)
-//	private String username;
-
 	@Column(name = "address", length = 40)
 	private String address;
 
@@ -51,9 +48,9 @@ public class AppUser {
 
 	public AppUser() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
+	
 	public AppUser(String username, String password) {
 		super();
 		this.username = username;
@@ -66,7 +63,8 @@ public class AppUser {
 		this.password = password;
 		this.role = role;
 	}
-
+	
+	
 	public AppUser(int userid, String username, String password, Role role, String firstName, String lastName,
 			Message message, String address, String contactno, String email) {
 		super();
@@ -129,14 +127,6 @@ public class AppUser {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-//	public Message getMessage() {
-//		return message;
-//	}
-//
-//	public void setMessage(Message message) {
-//		this.message = message;
-//	}
 
 	public String getAddress() {
 		return address;

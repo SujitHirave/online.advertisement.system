@@ -1,6 +1,5 @@
 package online.advertisement.system.controller;
 
-
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import jdk.internal.org.jline.utils.Log;
 import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.AppUser;
@@ -30,7 +28,6 @@ import online.advertisement.system.service.AppUserService;
 //import com.cg.spring.boot.demo.model.User;//
 //import com.cg.spring.boot.demo.service.UserService;
 
-
 //@RestController("/user")
 @RestController
 public class AdvertiseController {
@@ -39,54 +36,65 @@ public class AdvertiseController {
 
 	@Autowired
 	private AdvertiseService service;
-	
+
+	@Autowired
+	AppUserService appUserService;
 
 //	Post New Advertise(Selling)
 	@PostMapping("/user/seller/AddNewAdv")
-	public void addNewProduct(int advid, String advertisetitle, double price, String description,String advownername, int catid) {
+	public void addNewProduct(int advid, String advertisetitle, double price, String description, String advownername,
+			int catid) {
 		LOG.info("addproduct");
-		 service.addAdvertise(advid, advertisetitle, price, description, advownername, catid);
+		if (appUserService.loginStatus().getRole().toString().equals("USER"))
+			service.addAdvertise(advid, advertisetitle, price, description, advownername, catid);
 	}
-	
-	
+
 //	User will update or edit advertise details (seller)
 	@PutMapping("/user/seller/editAdv")
-	public void updateProduct(int advid, String advertisetitle, double price, String description,String advownername, int catid) {
+	public void updateProduct(int advid, String advertisetitle, double price, String description, String advownername,
+			int catid) {
 		LOG.info("updateproduct");
-		 service.updateAdvertise(advid, advertisetitle, price, description, advownername, catid);
+		if (appUserService.loginStatus().getRole().toString().equals("USER"))
+			service.updateAdvertise(advid, advertisetitle, price, description, advownername, catid);
+
 	}
-	
+
 //	Admin will Read all advertises posted by user(for changing status)
 	@GetMapping("/admin/getAllAdv")
-	private List<Advertise> getAllAdvA(){
+	private List<Advertise> getAllAdvA() {
 		LOG.info("ViewAdvertises");
-		return service.getAllAdvertises();
+		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
+			return service.getAllAdvertises();
+		return null;
 	}
-	
+
 //	Admin will update status of advertise
 	@PutMapping("/admin/updateStatus")
 	public void updateStatus(int advid, String status) {
 		LOG.info("updateStatus");
-		service.updateAdvStatus(advid, status);
+		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
+			service.updateAdvStatus(advid, status);
 	}
-	
 
 //	show approved advertise for buyer
 	@GetMapping("/user/buyer/getAllApprovedAdv")
-	private List<Advertise> getApprovedAdv(){
+	private List<Advertise> getApprovedAdv() {
 		LOG.info("ViewAdvertises");
-		return service.getApprovedAdvs();
+		if (appUserService.loginStatus().getRole().toString().equals("USER"))
+			return service.getApprovedAdvs();
+		return null;
 	}
-	
+
 //	Search Advertise by text entered in textbox(seller)
 //	@GetMapping("/user/seller/getAdvByName/{advertisetitle}")
 //	private List<Advertise> getAdvertise(@PathVariable("advertisetitle") String advertisetitle) {
 //		return service.getAdvertiseByName(advertisetitle);
 //	}
-	
+
 //	 method that returns ResponseEntity
 	@GetMapping("/user/seller/getAdvertise/{advertisetitle}")
-	public ResponseEntity<Advertise> getAdvertiseByadvertisetitle(@PathVariable("advertisetitle") String advertisetitle) {
+	public ResponseEntity<Advertise> getAdvertiseByadvertisetitle(
+			@PathVariable("advertisetitle") String advertisetitle) {
 		LOG.info("getadv");
 		Advertise adv = service.findAdvertiseByadvertisetitle(advertisetitle);
 		HttpHeaders headers = new HttpHeaders();
@@ -98,40 +106,37 @@ public class AdvertiseController {
 			return new ResponseEntity<Advertise>(adv, headers, HttpStatus.NOT_FOUND);
 		}
 	}
-	
+
 // Read all advertises posted by seller
 	@GetMapping("/user/seller/getAllAdv")
-	private List<Advertise> getAllAdv(){
+	private List<Advertise> getAllAdv() {
 		LOG.info("ViewAdvertises");
-		return service.getAllAdvertises();
+		if (appUserService.loginStatus().getRole().toString().equals("USER"))
+			return service.getAllAdvertises();
+		return null;
 	}
-	
-	
+
 //	Read the specific advertise by id(seller)
 	@GetMapping("/user/seller/getAdv/{advid}")
 	public Advertise getAdvertiseById(@PathVariable("advid") int advid) {
 		LOG.info("advertise");
-		return service.getAdvertiseById(advid);
+		if (appUserService.loginStatus().getRole().toString().equals("USER"))
+			return service.getAdvertiseById(advid);
+		return null;
 	}
-	
 
-	
-	
-
-	
-	
-	
 ////	For deleting Products
 //	@DeleteMapping("deleteadv/{advertisetitle}")
 //	public String deleteAdv(@PathVariable("advertisetitle") String advertisetitle) {
 //		LOG.info("deleteProduct");
 //		return service.deleteAdvertise(advertisetitle);
 //	}
-	
+
 //	Delete product by id
 	@DeleteMapping("/user/seller/deleteAdv/{advid}")
 	public void deleteAdv(@PathVariable int advid) {
 		LOG.info("deleteProduct-controller");
-		service.deleteAdvertise(advid);
+		if (appUserService.loginStatus().getRole().toString().equals("USER"))
+			service.deleteAdvertise(advid);
 	}
 }

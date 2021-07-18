@@ -11,8 +11,7 @@ import org.springframework.stereotype.Service;
 
 import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.AppUser;
-import online.advertisement.system.repository. AdminUserRepository;
-
+import online.advertisement.system.repository.AdminUserRepository;
 
 @Service
 public class AdminUserService {
@@ -20,19 +19,16 @@ public class AdminUserService {
 	private static final Logger LOG = LoggerFactory.getLogger(AdminUserService.class);
 
 	@Autowired
-	private  AdminUserRepository repository;
+	private AdminUserRepository repository;
 
-	
-	
 //	edit user
-	public  AppUser editUserProfile(AppUser edit) {
+	public AppUser editUserProfile(AppUser edit) {
 		LOG.info("UpdateUser");
-		
-			return repository.save(edit);
-		
+
+		return repository.save(edit);
+
 	}
-	
-	
+
 //	View user details
 	public List<AppUser> getAllUsers() {
 		LOG.info("ViewAllUsers");
@@ -42,15 +38,14 @@ public class AdminUserService {
 //	Delete User
 	public void deleteUser(int userid) {
 		LOG.info("deleteUser-service");
-		 repository.deleteById(userid);
-	
-		
+		repository.deleteById(userid);
+
 	}
 
 //	View user list
 	public List<String> getUsersList() {
 		LOG.info("viewUserList");
-		 return repository.viewUserList();
+		return repository.viewUserList();
 	}
 
 //	public Advertise findReadAdvertiseById(int catid) {
@@ -75,6 +70,5 @@ public class AdminUserService {
 //		LOG.info("findAdvertiseByName");
 //		return repository.findByName(advertisetitle);
 //	}
-	
-	
+
 }

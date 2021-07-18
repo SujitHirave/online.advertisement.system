@@ -13,29 +13,23 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-
-
 @Entity
 @Table(name = "category_adv")
 public class Category {
 	@Id
 	@Column(name = "catid")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "catid_generator")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "catid_generator")
 	@SequenceGenerator(name = "catid_generator", initialValue = 1, allocationSize = 1, sequenceName = "catId_seq")
 	private int catid;
 //	@OneToMany(mappedBy="category",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-	@OneToMany(mappedBy="category")
+	@OneToMany(mappedBy = "category")
 	private List<Advertise> advertises;
-	
+
 	@Column(name = "catname", nullable = false, length = 20)
 	private String catname;
-	
+
 	@Column(name = "catdescription", nullable = false, length = 20)
 	private String catdescription;
-	
-	
-	
-	
 
 	public Category() {
 		super();

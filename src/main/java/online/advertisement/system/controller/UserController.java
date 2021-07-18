@@ -17,14 +17,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
-
 import online.advertisement.system.model.AppUser;
 import online.advertisement.system.service.AppUserService;
 
 //import com.cg.spring.boot.demo.model.User;//
 //import com.cg.spring.boot.demo.service.UserService;
-
 
 @RestController()
 public class UserController {
@@ -34,15 +31,13 @@ public class UserController {
 	@Autowired
 	private AppUserService userService;
 
-	
-	
 //	user registration
-	@PostMapping("/register") 
+	@PostMapping("/register")
 	public AppUser registerUser(@RequestBody AppUser users) {
 		LOG.info("user");
-		return userService.registerUser(users);	
+		return userService.registerUser(users);
 	}
-	
+
 //  login
 	@PostMapping("/login")
 	public AppUser login(@RequestBody AppUser appUser) {
@@ -52,27 +47,34 @@ public class UserController {
 		AppUser appUser2 = userService.login(appUser);
 		if ((appUser.getUsername().equals(appUser2.getUsername())
 				&& (appUser.getPassword().equals(appUser2.getPassword())))) {
-			   return appUser2;
+			return appUser2;
 		}
 		return null;
-		
+
 	}
 	
+////  login
+//	@PostMapping("/user/login")
+//	public AppUser login(@RequestBody AppUser appUser) {
+//		LOG.info("loginController");
+//		LOG.info(appUser.getUsername());
+//		LOG.info(appUser.getPassword());
+//		AppUser appUser2 = userService.login(appUser);
+//		if ((appUser.getUsername().equals(appUser2.getUsername())
+//				&& (appUser.getPassword().equals(appUser2.getPassword())))) {
+//			return appUser2;
+//		}
+//		return null;
+//
+//	}
 
-	
-	
-	
-	
 //logout
 	@GetMapping("/logout")
 	public String logout() {
 		LOG.info("logoutController");
 		return userService.logout();
 	}
-	
-	
 
-	
 //	@GetMapping("/getAdvByName/{advertisetitle}")
 //	private List<Advertise> getAdvertise(@PathVariable("advertisetitle") String advertisetitle) {
 //		return service.getAdvertiseByName(advertisetitle);

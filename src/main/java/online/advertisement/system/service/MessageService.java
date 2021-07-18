@@ -20,22 +20,19 @@ public class MessageService {
 	@Autowired
 	private MessageRepository repository;
 
-	public void sendMessage(int msgid,int userid, int advid, String text_message) {
+	public void sendMessage(int msgid, int userid, int advid, String text_message) {
 		LOG.info("send message");
-		 repository.inserteds(msgid ,userid, advid, text_message);
+		repository.inserteds(msgid, userid, advid, text_message);
 	}
-	
+
 //	public Message sendMessage(Message smsg) {
 //		LOG.info("send message");
 //		return repository.save(smsg);
 //	}
-	
+
 //	public Message sendMessage(int userid, int advid, String textMessage) {
 //		LOG.info("send message");
 //		return repository.save(userid, advid, textMessage);
 //	}
-
-	
-
 
 }

@@ -19,7 +19,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 
-
 //	Search Advertise by text entered in textbox(seller)
 	public abstract List<Advertise> findByadvertisetitle(String advertisetitle);
 
@@ -35,15 +34,15 @@ public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 //	show approved advertise for buyer
 	@Modifying
 	@Transactional
-	@Query( value = "SELECT * FROM advertise_adv WHERE status IN ( 'OPEN', 'APPROVED')", nativeQuery = true)
+	@Query(value = "SELECT * FROM advertise_adv WHERE status IN ( 'OPEN', 'APPROVED')", nativeQuery = true)
 	public abstract List<Advertise> viewApprovedAdv();
 
-	
 //	Post New Advertise(Selling)
 	@Modifying
 	@Transactional
 	@Query(value = "INSERT INTO advertise_adv (advid, advertisetitle, price, description, advownername, catid) VALUES(:advid, :advertisetitle, :price, :description, :advownername, :catid) ", nativeQuery = true)
-	public abstract void addSellerAdv(int advid, String advertisetitle, double price, String description, String advownername, int catid);
+	public abstract void addSellerAdv(int advid, String advertisetitle, double price, String description,
+			String advownername, int catid);
 //	@Query(value = "INSERT INTO advertise_adv (advid, advertisetitle, price, description, advownername, catid) VALUES(:advid, :advertisetitle, :price, :description, :advownername, :catid) ", nativeQuery = true)
 //	public abstract void addSellerAdv(int advid, String advertisetitle, double price, String description, String advownername, int catid);
 
@@ -51,9 +50,11 @@ public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 	@Modifying
 	@Transactional
 	@Query(value = "UPDATE Advertise SET advertisetitle = :advertisetitle, price = :price, description = :description, advownername = :advownername,  catid = :catid WHERE advid = :advid ")
-	public abstract void updateSellerAdv(@Param(value = "advertisetitle") String advertisetitle, @Param(value = "price") double price, @Param(value = "description") String description, @Param(value = "advownername") String advownername, @Param(value = "catid")int catid, @Param(value = "advid") int advid);
+	public abstract void updateSellerAdv(@Param(value = "advertisetitle") String advertisetitle,
+			@Param(value = "price") double price, @Param(value = "description") String description,
+			@Param(value = "advownername") String advownername, @Param(value = "catid") int catid,
+			@Param(value = "advid") int advid);
 
-	
 //	Admin will update status of advertise
 	@Modifying
 	@Transactional
@@ -63,9 +64,6 @@ public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 //	void updatePhone(@Param(value = "id") long id, @Param(value = "phone") String phone);
 //	public abstract void updateStatusAdv(int advid, String status);
 
-	
-	
 	public abstract Optional<Advertise> findByAdvertisetitle(String advertisetitle);
-
 
 }

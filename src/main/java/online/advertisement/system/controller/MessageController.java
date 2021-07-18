@@ -22,14 +22,13 @@ import online.advertisement.system.model.Message;
 import online.advertisement.system.service.CategoryService;
 import online.advertisement.system.service.MessageService;
 
-
 @RestController
 public class MessageController {
 	private static final Logger LOG = LoggerFactory.getLogger(MessageController.class);
 
 	@Autowired
 	private MessageService service;
-	
+
 //	@PostMapping("/seller/sendMessage")
 //	public Message sendMsg (Message smsg ) {
 //		LOG.info("send message");
@@ -37,8 +36,8 @@ public class MessageController {
 //	}
 //	
 	@PostMapping("/buyer/sendMessage")
-	public void sendMsg (int msgid,int userid, int advid, String text_message ) {
+	public void sendMsg(int msgid, int userid, int advid, String text_message) {
 		LOG.info("send message");
-		 service.sendMessage(msgid,userid, advid, text_message);
+		service.sendMessage(msgid, userid, advid, text_message);
 	}
 }

@@ -13,33 +13,33 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "message_adv")
 public class Message {
-	
+
 	@Id
 	@Column(name = "msgid")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "msgid_generator")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "msgid_generator")
 	@SequenceGenerator(name = "msgid_generator", initialValue = 301, allocationSize = 1, sequenceName = "msgId_seq")
 	private int msgid;
-	
+
 //	private int id; // messageId 
 //	private int sellerId; 
 //	private int buyerId;
 //	private int advId;
 //	private String messageText;
-	
+
 	@OneToOne
 	@JoinColumn(name = "advid")
 	private Advertise advertise;
-	
+
 	@OneToOne
 	@JoinColumn(name = "userid")
 	private AppUser appUser;
-	
+
 	@Column(name = "sellerId", length = 20)
 	private int sellerId;
-	
+
 	@Column(name = "buyerId", length = 20)
 	private int buyerId;
-	
+
 	@Column(name = "textMessage", nullable = false, length = 60)
 	private String textMessage;
 
@@ -47,7 +47,6 @@ public class Message {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
 
 	public Message(int msgid, Advertise advertise, AppUser appUser, String textMessage) {
 		super();
@@ -56,7 +55,6 @@ public class Message {
 		this.appUser = appUser;
 		this.textMessage = textMessage;
 	}
-
 
 	public Message(int msgid, Advertise advertise, AppUser appUser, int sellerId, int buyerId, String textMessage) {
 		super();
@@ -129,5 +127,4 @@ public class Message {
 				+ sellerId + ", buyerId=" + buyerId + ", textMessage=" + textMessage + "]";
 	}
 
-	
 }

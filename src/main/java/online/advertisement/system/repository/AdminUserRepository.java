@@ -13,8 +13,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-
-
 @Repository
 public interface AdminUserRepository extends JpaRepository<AppUser, Integer> {
 
@@ -23,13 +21,13 @@ public interface AdminUserRepository extends JpaRepository<AppUser, Integer> {
 //	@Transactional
 //	@Query( value = "SELECT * FROM user_adv u WHERE u.username = 'username' ", nativeQuery = true)
 //	public abstract List<AppUser> viewUserList();
-	
+
 //	View user list
 	@Modifying
 	@Transactional
-	@Query( value = "SELECT username FROM user_adv", nativeQuery = true)
+	@Query(value = "SELECT username FROM user_adv", nativeQuery = true)
 	public abstract List<String> viewUserList();
-	
+
 //	Delete user by id
 	@Modifying
 	@Transactional

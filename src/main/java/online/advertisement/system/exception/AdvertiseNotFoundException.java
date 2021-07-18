@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class AdvertiseNotFoundException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
+
 	public AdvertiseNotFoundException() {
 		super();
 	}
-	
+
 }

@@ -25,46 +25,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.AppUser;
 import online.advertisement.system.service.AppUserService;
 import online.advertisement.system.service.AdminUserService;
-//impo
 
 @RestController
 public class AdminUserController {
-	
+
 	private static final Logger LOG = LoggerFactory.getLogger(AdminUserController.class);
-	
+
 	@Autowired
 	private AdminUserService service;
-	
+
 	@Autowired
 	AppUserService appUserService;
-	
+
 //	View user details
 	@GetMapping("/admin/getAllUserDetails")
-	public List<AppUser> getAllUserDetails(){
+	public List<AppUser> getAllUserDetails() {
 		LOG.info("ViewUsers");
 		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
 			return service.getAllUsers();
 		return null;
-		
 	}
-	
-////	View user list
+
+//	View user list
 	@GetMapping("/admin/getUserList")
-	public List<String> getUserList(){
+	public List<String> getUserList() {
 		LOG.info("ViewUserList");
 		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
 			return service.getUsersList();
 		return null;
-	
 	}
-	
-	
-	
 
 //	edit user
 	@PutMapping("/admin/edit_user")
@@ -73,17 +66,14 @@ public class AdminUserController {
 		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
 			return service.editUserProfile(edit);
 		return null;
-		
 	}
-	
+
 //	Delete User
 	@DeleteMapping("/admin/deleteUser/{userid}")
-	public  void deleteUser(@PathVariable int userid) {
+	public void deleteUser(@PathVariable int userid) {
 		LOG.info("deleteUser-controller");
 		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
-		    service.deleteUser(userid);
-		
+			service.deleteUser(userid);
 	}
-	
 
 }

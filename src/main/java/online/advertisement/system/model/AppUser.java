@@ -10,43 +10,43 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user_adv") 
+@Table(name = "user_adv")
 public class AppUser {
 
 	@Id
 	@Column(name = "userid")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "userid_generator")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userid_generator")
 	@SequenceGenerator(name = "userid_generator", initialValue = 101, allocationSize = 1, sequenceName = "userId_seq")
 	private int userid;
-	
+
 	@Column(name = "username", length = 10, unique = true)
 	private String username;
-	
+
 	@Column(name = "password", length = 10)
 	private String password;
 
 	@Column
 	private Role role;
-	
+
 	@Column(name = "firstName", length = 20)
 	private String firstName;
-	
+
 	@Column(name = "lastName", length = 20)
 	private String lastName;
-	
-	@OneToOne(mappedBy="appUser")
+
+	@OneToOne(mappedBy = "appUser")
 	private Message message;
-	
+
 //	@Column(name = "username", nullable = false, length = 20)
 //	private String username;
 
-	@Column(name = "address",  length = 40)
+	@Column(name = "address", length = 40)
 	private String address;
-	
+
 	@Column(name = "contactno", length = 10)
 	private String contactno;
-	
-	@Column(name="email",nullable = false, unique = true, length = 30)
+
+	@Column(name = "email", nullable = false, unique = true, length = 30)
 	private String email;
 
 	public AppUser() {
@@ -168,6 +168,5 @@ public class AppUser {
 				+ ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", contactno="
 				+ contactno + ", email=" + email + "]";
 	}
-	
-	
+
 }

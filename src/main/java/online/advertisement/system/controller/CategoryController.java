@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.Category;
+import online.advertisement.system.service.AppUserService;
 import online.advertisement.system.service.CategoryService;
 
 //
@@ -31,7 +32,6 @@ import online.advertisement.system.service.CategoryService;
 //import com.cg.spring.boot.demo.model.User;//
 //import com.cg.spring.boot.demo.service.UserService;
 
-
 //@RestController("/user")
 @RestController
 public class CategoryController {
@@ -41,26 +41,36 @@ public class CategoryController {
 	@Autowired
 	private CategoryService service;
 
+	@Autowired
+	AppUserService appUserService;
+
 // Add category	
 	@PostMapping("/admin/addCategory")
 	public Category addCategory(@RequestBody Category cat) {
 		LOG.info("addproduct");
-		return service.addCategory(cat);
+		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
+			return service.addCategory(cat);
+		return null;
 	}
-	
+
 //	view Category
 	@GetMapping("/adminORuser/getAllCategory")
 	private List<Category> getAllCat() {
 		LOG.info("ViewCategory");
-		return service.getAllCategory();
+		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
+			return service.getAllCategory();
+		return null;
 	}
-	
+
+//	Find category by category name
 //	@GetMapping("/getcatbyname/{catname}")
 //	public List<Category> getCatBycatname(@PathVariable("catname") String catname) {
 //		LOG.info("getEmpByEname");
+//		if (appUserService.loginStatus().getRole().toString().equals("USER"))
 //		return service.findCategoryBycatname( catname);
+//		return null;
 //	}
-	
+
 //	 method that returns ResponseEntity
 	@GetMapping("/getCategory/{catid}")
 	public ResponseEntity<Category> getCategoryBycatid(@PathVariable("catid") int catid) {
@@ -80,8 +90,8 @@ public class CategoryController {
 	@DeleteMapping("/admin/deleteCategory/{catid}")
 	public void deleteCat(@PathVariable int catid) {
 		LOG.info("deleteCategory");
-		service.deleteCategory(catid);
+		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
+			service.deleteCategory(catid);
 	}
-	
 
-	}
+}

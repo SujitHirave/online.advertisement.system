@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import online.advertisement.system.model.AppUser;
 import online.advertisement.system.repository.AppUserRepository;
 
-
 @Service
 public class AppUserService {
 
@@ -19,20 +18,20 @@ public class AppUserService {
 	private AppUserRepository repository;
 
 	private AppUser currentAppUser; // access control to APIs
-	
-	//RegisterUser
+
+	// RegisterUser
 	public AppUser registerUser(AppUser appusers) {
 		LOG.info("RegisterUser");
 		return repository.save(appusers);
 	}
-	
-	//login
+
+	// login
 	public AppUser login(AppUser appUser) {
 		LOG.info("loginService");
 //		currentAppUser = repository.findByUsernameAndPassword(appUser.getUsername() , appUser.getPassword());
 		currentAppUser = repository.findByUsername(appUser.getUsername());
 //		System.out.println(currentAppUser);
-		return currentAppUser; 
+		return currentAppUser;
 	}
 
 //logout
@@ -41,20 +40,13 @@ public class AppUserService {
 		currentAppUser = null;
 		return "User logged out successfully";
 	}
-	
-	//login status
+
+	// login status
 	public AppUser loginStatus() {
 		LOG.info("loginStatusService");
 //		currentAppUser = repository.findByUsername();
 		return currentAppUser;
 	}
-	
-	
-	
-
-	
-		
-	
 
 ////	View user list
 //	public List<AppUser> getUsersList() {
@@ -84,6 +76,5 @@ public class AppUserService {
 //		LOG.info("findAdvertiseByName");
 //		return repository.findByName(advertisetitle);
 //	}
-	
-	
+
 }

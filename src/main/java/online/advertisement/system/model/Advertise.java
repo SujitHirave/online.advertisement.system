@@ -20,26 +20,26 @@ public class Advertise {
 
 	@Id
 	@Column(name = "advid")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "advid_generator")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "advid_generator")
 	@SequenceGenerator(name = "advid_generator", initialValue = 201, allocationSize = 1, sequenceName = "advId_seq")
 	private int advid;
 //	@OneToOne(mappedBy="advertise",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-	@OneToOne(mappedBy="advertise")
+	@OneToOne(mappedBy = "advertise")
 	private Message message;
-	
+
 	@Column(name = "advertisetitle", length = 50)
 	private String advertisetitle;
-	
-	@Column(name = "price",  length = 10)
+
+	@Column(name = "price", length = 10)
 	private double price;
-	
+
 	@Column(name = "description", length = 40)
 	private String description;
-	
+
 	@Column(name = "status", length = 10)
 	private String status;
-	
-	@Column(name = "advownername",  length = 20)
+
+	@Column(name = "advownername", length = 20)
 	private String advownername;
 
 	@ManyToOne
@@ -50,9 +50,9 @@ public class Advertise {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
 
-	public Advertise(int advid, String advertisetitle, double price, String description, String advownername, Category category) {
+	public Advertise(int advid, String advertisetitle, double price, String description, String advownername,
+			Category category) {
 		super();
 		this.advid = advid;
 		this.advertisetitle = advertisetitle;
@@ -61,7 +61,6 @@ public class Advertise {
 		this.advownername = advownername;
 		this.category = category;
 	}
-
 
 	public Advertise(int advid, Message message, String advertisetitle, double price, String description, String status,
 			String advownername, Category category) {
@@ -75,8 +74,6 @@ public class Advertise {
 		this.advownername = advownername;
 		this.category = category;
 	}
-	
-	
 
 	public Advertise(int advid, Message message, String advertisetitle, double price, String description,
 			String advownername, Category category) {
@@ -99,13 +96,11 @@ public class Advertise {
 //		this.category = category;
 //	}
 
-
 	public Advertise(int advid, String status) {
 		super();
 		this.advid = advid;
 		this.status = status;
 	}
-
 
 	public int getAdvid() {
 		return advid;
@@ -173,12 +168,9 @@ public class Advertise {
 
 	@Override
 	public String toString() {
-		return "Advertise [advid=" + advid  + ", advertisetitle=" + advertisetitle + ", price="
-				+ price + ", description=" + description + ", status=" + status + ", advownername=" + advownername
+		return "Advertise [advid=" + advid + ", advertisetitle=" + advertisetitle + ", price=" + price
+				+ ", description=" + description + ", status=" + status + ", advownername=" + advownername
 				+ ", category=" + category + "]";
 	}
-
-	
-
 
 }

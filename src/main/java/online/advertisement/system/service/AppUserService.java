@@ -41,7 +41,7 @@ public class AppUserService {
 	public String logout() {
 		LOG.info("logoutService");
 		currentAppUser = null;
-		return "User logged out successfully";
+		return " Logged out successfully";
 	}
 
 // login status

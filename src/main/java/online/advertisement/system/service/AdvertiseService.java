@@ -62,10 +62,6 @@ public class AdvertiseService {
 		repository.updateStatusAdv(status, advid);
 	}
 
-//	public Advertise updateAdvertise(Advertise adv) {
-//		LOG.info("updateProduct");
-//		return repository.save(adv);
-//	}
 
 //	Delete product by id
 	public void deleteAdvertise(int advid) {

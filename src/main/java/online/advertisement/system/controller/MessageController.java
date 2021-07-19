@@ -7,6 +7,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import online.advertisement.system.service.MessageService;
 
+/**
+ * 
+ * controller for Message functionalities
+ *
+ */
+
 @RestController
 public class MessageController {
 	private static final Logger LOG = LoggerFactory.getLogger(MessageController.class);

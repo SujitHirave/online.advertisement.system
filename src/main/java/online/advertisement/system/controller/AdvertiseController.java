@@ -2,6 +2,7 @@ package online.advertisement.system.controller;
 
 import java.util.List;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,11 @@ import online.advertisement.system.model.Category;
 import online.advertisement.system.service.AdvertiseService;
 import online.advertisement.system.service.AppUserService;
 
+/**
+ * 
+ * controller for Advertise functionalities
+ *
+ */
 
 @RestController
 public class AdvertiseController {

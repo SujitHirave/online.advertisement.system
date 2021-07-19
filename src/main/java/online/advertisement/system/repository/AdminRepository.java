@@ -8,6 +8,12 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+/**
+ * 
+ * repository for Admin functionalities
+ *
+ */
+
 @Repository
 public interface AdminRepository extends JpaRepository<AppUser, Integer> {
 

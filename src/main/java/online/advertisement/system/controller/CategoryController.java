@@ -17,6 +17,12 @@ import online.advertisement.system.model.Category;
 import online.advertisement.system.service.AppUserService;
 import online.advertisement.system.service.CategoryService;
 
+/**
+ * 
+ * controller for Category functionalities
+ *
+ */
+
 @RestController
 public class CategoryController {
 

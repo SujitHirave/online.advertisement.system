@@ -11,6 +11,11 @@ import online.advertisement.system.model.Advertise;
 import online.advertisement.system.model.Category;
 import online.advertisement.system.repository.AdvertiseRepository;
 
+/**
+ * 
+ * service for Advertise functionalities
+ *
+ */
 @Service
 public class AdvertiseService {
 

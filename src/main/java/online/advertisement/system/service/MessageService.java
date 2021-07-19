@@ -6,6 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import online.advertisement.system.repository.MessageRepository;
 
+/**
+ * 
+ * service for Message functionalities
+ *
+ */
+
 @Service
 public class MessageService {
 

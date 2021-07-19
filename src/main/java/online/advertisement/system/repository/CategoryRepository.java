@@ -6,6 +6,12 @@ import org.springframework.stereotype.Repository;
 
 import online.advertisement.system.model.Category;
 
+/**
+ * 
+ * repository for Category functionalities
+ *
+ */
+
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
 

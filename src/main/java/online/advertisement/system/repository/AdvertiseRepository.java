@@ -10,6 +10,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+/**
+ * 
+ *repository for Advertisement functionalities
+ *
+ */
+
 @Repository
 public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 

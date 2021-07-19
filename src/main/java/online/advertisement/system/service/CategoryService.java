@@ -10,6 +10,12 @@ import online.advertisement.system.exception.CategoryNotFoundException;
 import online.advertisement.system.model.Category;
 import online.advertisement.system.repository.CategoryRepository;
 
+/**
+ * 
+ * service for Category functionalities
+ *
+ */
+
 @Service
 public class CategoryService {
 	private static final Logger LOG = LoggerFactory.getLogger(CategoryService.class);

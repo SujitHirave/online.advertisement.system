@@ -3,6 +3,11 @@ package online.advertisement.system.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+/**
+ * 
+ * AdvertiseNotFoundException
+ *
+ */
 @ResponseStatus(HttpStatus.NOT_FOUND)
 public class AdvertiseNotFoundException extends RuntimeException {
 

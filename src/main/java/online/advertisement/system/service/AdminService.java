@@ -8,6 +8,11 @@ import org.springframework.stereotype.Service;
 import online.advertisement.system.model.AppUser;
 import online.advertisement.system.repository.AdminRepository;
 
+/**
+ * 
+ * service for Admin functionalities
+ *
+ */
 @Service
 public class AdminService {
 

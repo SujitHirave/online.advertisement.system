@@ -7,6 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import online.advertisement.system.model.Message;
 
+/**
+ * 
+ * repository for Message functionalities
+ *
+ */
+
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Integer> {
 

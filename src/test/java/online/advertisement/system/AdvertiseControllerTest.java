@@ -34,7 +34,7 @@ public class AdvertiseControllerTest {
 	@Test
 	public void  testgetAdvertiseByIdNeg()  {
 		LOG.info("testfindAdvertiseByName");
-		Advertise  obj= new Advertise(11,"APPROVED");
+		Advertise  obj= new Advertise(11,"Rejected");
 		 when(service.getAdvertiseById(11)).thenReturn(obj);       // actual
 		 
 		 String status="Rejected";                                //expected

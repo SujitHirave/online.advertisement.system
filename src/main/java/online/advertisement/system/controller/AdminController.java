@@ -14,6 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 import online.advertisement.system.service.AppUserService;
 import online.advertisement.system.service.AdminUserService;
 
+/**
+ * 
+ * controller for Admin functionalities
+ *
+ */
+
 @RestController
 public class AdminController {
 

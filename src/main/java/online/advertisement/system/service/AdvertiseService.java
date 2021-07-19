@@ -81,19 +81,11 @@ public class AdvertiseService {
 	}
 
 //	 method that works with custom exception	
-	public Advertise findAdvertiseByadvertisetitle(String advertisetitle) {
+	public List<Advertise> findAdvertiseByadvertisetitle(String advertisetitle) {
 		LOG.info("findAdvertiseByadvertisetitle");
-		Optional<Advertise> optAdv = repository.findByAdvertisetitle(advertisetitle);
-		if (optAdv.isEmpty())
-			throw new AdvertiseNotFoundException();
-		else
-			return optAdv.get();
+		 return repository.findByadvertisetitle(advertisetitle);
+
 	}
 
-//search product by text
-//	public List<Advertise> getAdvertiseByText(String advertisetitle, double price, String description,
-//			Category category) {
-//		LOG.info("Search by Text");
-//		return repository.searchproductByText();
-//	}
+
 }

@@ -82,26 +82,16 @@ public class AdvertiseController {
 		return null;
 	}
 
-//	Search Advertise by text entered in textbox(seller)
-//	@GetMapping("/user/seller/getAdvByText/{text}")
-//	private List<Advertise> getAdvertise(String advertisetitle, double price, String description, Category category) {
-//		return service.getAdvertiseByText(advertisetitle,price, description,  category);
-//	}
+
 
 //	Buyer can also search for advertises by advertisetitle
-	@GetMapping("/user/buyer/getAdvertise/{advertisetitle}")
-	public ResponseEntity<Advertise> getAdvertiseByadvertisetitle(
-			@PathVariable("advertisetitle") String advertisetitle) {
+	@GetMapping("/user/getAdvertise/{advertisetitle}")
+	public  List<Advertise> getAdvertiseByadvertisetitle(String  advertisetitle) {
 		LOG.info("getadv");
-		Advertise adv = service.findAdvertiseByadvertisetitle(advertisetitle);
-		HttpHeaders headers = new HttpHeaders();
-		if (adv != null) {
-			headers.add("Advertise name", adv.getAdvertisetitle());
-			return new ResponseEntity<Advertise>(adv, headers, HttpStatus.OK);
-		} else {
-			headers.add("Advertise name", "Name not available");
-			return new ResponseEntity<Advertise>(adv, headers, HttpStatus.NOT_FOUND);
-		}
+		if (appUserService.loginStatus().getRole().toString().equals("USER"))
+		   return service.findAdvertiseByadvertisetitle(advertisetitle);
+	    return null;
+
 	}
 
 // Buyer can view all the advertises posted by the seller

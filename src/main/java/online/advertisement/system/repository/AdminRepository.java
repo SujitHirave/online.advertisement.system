@@ -17,7 +17,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AdminRepository extends JpaRepository<AppUser, Integer> {
 
-
 //	View user list
 	@Modifying
 	@Transactional

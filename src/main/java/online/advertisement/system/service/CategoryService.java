@@ -36,7 +36,6 @@ public class CategoryService {
 		return repository.findAll();
 	}
 
-
 //	Delete category by id
 	public void deleteCategory(int catid) {
 		LOG.info("deleteCategory");

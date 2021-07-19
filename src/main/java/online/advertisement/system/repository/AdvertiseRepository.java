@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * 
- *repository for Advertisement functionalities
+ * repository for Advertisement functionalities
  *
  */
 
@@ -57,10 +57,8 @@ public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 	@Transactional
 	@Query("UPDATE Advertise a SET a.status = :status  WHERE a.advid = :advid")
 	public abstract void updateStatusAdv(@Param(value = "status") String status, @Param(value = "advid") int advid);
-	
-	
+
 // find advertise by title
 	public abstract List<Advertise> findByAdvertisetitle(String advertisetitle);
-
 
 }

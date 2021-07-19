@@ -30,14 +30,12 @@ public class Category {
 	public Category() {
 		super();
 	}
-	
+
 	public Category(int catid, String catname) {
 		super();
 		this.catid = catid;
 		this.catname = catname;
 	}
-
-
 
 	public Category(int catid, String catname, String catdescription) {
 		super();

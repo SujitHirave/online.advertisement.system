@@ -50,7 +50,6 @@ public class AppUser {
 		super();
 	}
 
-	
 	public AppUser(String username, String password) {
 		super();
 		this.username = username;
@@ -63,8 +62,7 @@ public class AppUser {
 		this.password = password;
 		this.role = role;
 	}
-	
-	
+
 	public AppUser(int userid, String username, String password, Role role, String firstName, String lastName,
 			Message message, String address, String contactno, String email) {
 		super();

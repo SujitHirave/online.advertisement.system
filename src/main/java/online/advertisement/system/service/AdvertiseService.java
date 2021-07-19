@@ -1,14 +1,11 @@
 package online.advertisement.system.service;
 
 import java.util.List;
-import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import online.advertisement.system.exception.AdvertiseNotFoundException;
 import online.advertisement.system.model.Advertise;
-import online.advertisement.system.model.Category;
 import online.advertisement.system.repository.AdvertiseRepository;
 
 /**
@@ -62,7 +59,6 @@ public class AdvertiseService {
 		repository.updateStatusAdv(status, advid);
 	}
 
-
 //	Delete product by id
 	public void deleteAdvertise(int advid) {
 		LOG.info("deleteProduct-service");
@@ -79,9 +75,8 @@ public class AdvertiseService {
 //	 method that works with custom exception	
 	public List<Advertise> findAdvertiseByadvertisetitle(String advertisetitle) {
 		LOG.info("findAdvertiseByadvertisetitle");
-		 return repository.findByadvertisetitle(advertisetitle);
+		return repository.findByadvertisetitle(advertisetitle);
 
 	}
-
 
 }

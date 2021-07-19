@@ -10,7 +10,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 /**
  * 
- *  CustomExceptionHandler
+ * CustomExceptionHandler
  *
  */
 

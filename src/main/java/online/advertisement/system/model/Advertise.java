@@ -45,7 +45,6 @@ public class Advertise {
 	public Advertise() {
 		super();
 	}
-	
 
 	public Advertise(String advertisetitle, double price, String description, Category category) {
 		super();
@@ -54,9 +53,6 @@ public class Advertise {
 		this.description = description;
 		this.category = category;
 	}
-	
-	
-
 
 	public Advertise(int advid, String advertisetitle, double price, String description, String advownername,
 			Category category) {
@@ -80,7 +76,6 @@ public class Advertise {
 //		super();
 //		this.description = description;
 //	}
-
 
 	public Advertise(int advid, Message message, String advertisetitle, double price, String description, String status,
 			String advownername, Category category) {
@@ -106,7 +101,6 @@ public class Advertise {
 		this.advownername = advownername;
 		this.category = category;
 	}
-
 
 	public Advertise(int advid, String status) {
 		super();

@@ -1,22 +1,17 @@
 package online.advertisement.system.controller;
 
 import java.util.List;
-
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
+import online.advertisement.system.exception.AdvertiseNotFoundException;
 import online.advertisement.system.model.Advertise;
-import online.advertisement.system.model.Category;
 import online.advertisement.system.service.AdvertiseService;
 import online.advertisement.system.service.AppUserService;
 
@@ -82,15 +77,14 @@ public class AdvertiseController {
 		return null;
 	}
 
-
-
 //	Buyer can also search for advertises by advertisetitle
 	@GetMapping("/user/getAdvertise/{advertisetitle}")
-	public  List<Advertise> getAdvertiseByadvertisetitle(String  advertisetitle) {
+	public List<Advertise> getAdvertiseByadvertisetitle(String advertisetitle) {
 		LOG.info("getadv");
-		if (appUserService.loginStatus().getRole().toString().equals("USER"))
-		   return service.findAdvertiseByadvertisetitle(advertisetitle);
-	    return null;
+		if (appUserService.loginStatus().getRole().toString().equals("USER")) {
+			return service.findAdvertiseByadvertisetitle(advertisetitle);
+		}
+		return null;
 
 	}
 
@@ -107,13 +101,13 @@ public class AdvertiseController {
 	@GetMapping("/user/seller/getAdv/{advid}")
 	public Advertise getAdvertiseById(@PathVariable("advid") int advid) {
 		LOG.info("advertise");
-		if (appUserService.loginStatus().getRole().toString().equals("USER"))
+		if (appUserService.loginStatus().getRole().toString().equals("USER")) {
 			return service.getAdvertiseById(advid);
-		return null;
+		} else
+			throw new AdvertiseNotFoundException();
 	}
 
-
-//	Seller can delete his posted advertise 
+	// Seller can delete his posted advertise
 	@DeleteMapping("/user/seller/deleteAdv/{advid}")
 	public void deleteAdv(@PathVariable int advid) {
 		LOG.info("deleteadvertise");

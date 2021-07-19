@@ -53,7 +53,7 @@ public class CategoryController {
 	}
 
 //	Admin and user can view category by category id
-	
+
 	@GetMapping("/getCategory/{catid}")
 	public ResponseEntity<Category> getCategoryBycatid(@PathVariable("catid") int catid) {
 		LOG.info("getcat");

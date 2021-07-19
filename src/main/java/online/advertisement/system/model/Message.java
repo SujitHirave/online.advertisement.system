@@ -80,6 +80,5 @@ public class Message {
 		return "Message [msgid=" + msgid + ", advertise=" + advertise + ", appUser=" + appUser + ", textMessage="
 				+ textMessage + "]";
 	}
-	
 
 }

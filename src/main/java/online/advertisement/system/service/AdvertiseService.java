@@ -86,9 +86,9 @@ public class AdvertiseService {
 	}
 
 //search product by text
-	public List<Advertise> getAdvertiseByText(String advertisetitle, double price, String description,
-			Category category) {
-		LOG.info("Search by Text");
-		return repository.searchproductByText();
-	}
+//	public List<Advertise> getAdvertiseByText(String advertisetitle, double price, String description,
+//			Category category) {
+//		LOG.info("Search by Text");
+//		return repository.searchproductByText();
+//	}
 }

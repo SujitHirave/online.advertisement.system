@@ -1,6 +1,7 @@
 package online.advertisement.system;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.Test;
@@ -19,6 +20,7 @@ public class AdvertiseControllerTest {
 	@MockBean
 	private AdvertiseService service;
 
+    //  Positive test case - service.getAdvertiseById)
 	@Test
 	public void  testgetAdvertiseById()  {
 		LOG.info("testfindAdvertiseByName");
@@ -31,16 +33,18 @@ public class AdvertiseControllerTest {
 		
 	}
 	
+   //  Negative test case - service.getAdvertiseById()
 	@Test
-	public void  testgetAdvertiseByIdNeg()  {
+	public void  testgetAdvertiseByIdNegative()  {
 		LOG.info("testfindAdvertiseByName");
 		Advertise  obj= new Advertise(11,"Rejected");
 		 when(service.getAdvertiseById(11)).thenReturn(obj);       // actual
 		 
-		 String status="Rejected";                                //expected
+		 String status="APPROVED";                                //unexpected
 		 
-		assertEquals(status,service.getAdvertiseById(11).getStatus()); //assertEquals(expected, actual)
+		assertNotEquals(status,service.getAdvertiseById(11).getStatus()); //assertEquals(expected, actual)
 		
 	}
+	
 
 }

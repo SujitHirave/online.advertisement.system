@@ -1,7 +1,9 @@
 package online.advertisement.system;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.Mockito.when;
+
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,36 +21,34 @@ public class LoginControllerTest {
 	@MockBean
 	private AppUserService userService;
 
- //Positive test case
+ //Positive test case-login()
 	@Test
 	public void  testlogin()  {
 		LOG.info("testLogin");
-		AppUser appUser = userService.login(new AppUser("user","pass"));
-//		if ((appUser.getUsername().equals(appUser2.getUsername())
-//				&& (appUser.getPassword().equals(appUser2.getPassword())))) {
-//			return appUser2;
-//		}
-		 when(userService.login(appUser).getUsername()).thenReturn("user");       // actual
+		AppUser appUser1 = new AppUser("user123","pass");
+		AppUser appUser2= userService.login(new AppUser("user123","pass"));
+
+		 when(userService.login(appUser2)).thenReturn(appUser1);       // actual
 		 
-		 String username="user";
-		// String password="pass";
+		 
+		 String password="pass";                                     //expected
 			
 		 
-		assertEquals(username, appUser.getUsername()); //assertEquals(expected, actual)
+		assertEquals(password, userService.login(appUser2).getPassword()); //assertEquals(expected, actual)
 		
 	}
 	
-//	// Positive test case
-//		@Test
-//		public void  testlogin()  {
-//			LOG.info("testLogin");
-//			AppUser appUser2 = userService.login(appUser2);
-//			 when(userService.login("user123")).thenReturn(appUser2);       // actual
-//			 
-//			 String username="user123";                                //expected
-//			 
-//			assertEquals(username,userService.login(username).getusername()); //assertEquals(expected, actual)
-//			
-//		}
+//Negative test case-login()
+	@Test
+	public void  testloginNegative()  {
+		LOG.info("testLogin");
+		AppUser appUser1 = new AppUser("user123","passw");
+		AppUser appUser2= userService.login(new AppUser("user123","passw"));
+		 when(userService.login(appUser2)).thenReturn(appUser1);       // actual
+		 String password="pass";                                     //unexpected 
+		assertNotEquals(password, userService.login(appUser2).getPassword()); //assertEquals(unexpected, actual)
+		
+	}
+	
 
 }

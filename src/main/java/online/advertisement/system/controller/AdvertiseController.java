@@ -77,10 +77,10 @@ public class AdvertiseController {
 	}
 
 //	Search Advertise by text entered in textbox(seller)
-	@GetMapping("/user/seller/getAdvByText/{text}")
-	private List<Advertise> getAdvertise(String advertisetitle, double price, String description, Category category) {
-		return service.getAdvertiseByText(advertisetitle,price, description,  category);
-	}
+//	@GetMapping("/user/seller/getAdvByText/{text}")
+//	private List<Advertise> getAdvertise(String advertisetitle, double price, String description, Category category) {
+//		return service.getAdvertiseByText(advertisetitle,price, description,  category);
+//	}
 
 //	Buyer can also search for advertises by advertisetitle
 	@GetMapping("/user/buyer/getAdvertise/{advertisetitle}")

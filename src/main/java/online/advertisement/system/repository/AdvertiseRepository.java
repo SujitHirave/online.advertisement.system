@@ -52,6 +52,14 @@ public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 	@Transactional
 	@Query("UPDATE Advertise a SET a.status = :status  WHERE a.advid = :advid")
 	public abstract void updateStatusAdv(@Param(value = "status") String status, @Param(value = "advid") int advid);
+//	 method that works with custom exception	
 	public abstract Optional<Advertise> findByAdvertisetitle(String advertisetitle);
+
+//search product by text
+	@Modifying
+	@Transactional
+	@Query(value = "SELECT * FROM advertise_adv WHERE advertisetitle = :advertisetitle, price = :price, description = :description, category=:category", nativeQuery = true)
+	
+	public abstract List<Advertise> searchproductByText();
 
 }

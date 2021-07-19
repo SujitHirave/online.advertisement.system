@@ -11,6 +11,13 @@ import online.advertisement.system.exception.UserNotFoundException;
 import online.advertisement.system.model.AppUser;
 import online.advertisement.system.service.AppUserService;
 
+/**
+ * 
+ * 
+ * Controller for Registration, Login and Logout functionalities
+ *
+ */
+
 @RestController()
 public class LoginController {
 

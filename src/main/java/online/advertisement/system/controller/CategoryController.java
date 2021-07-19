@@ -37,11 +37,11 @@ public class CategoryController {
 		return null;
 	}
 
-//	Admin and user can view category
-	@GetMapping("/adminAnduser/getAllCategory")
+//	User can view category
+	@GetMapping("/user/getAllCategory")
 	private List<Category> getAllCat() {
 		LOG.info("ViewCategory");
-		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
+		if (appUserService.loginStatus().getRole().toString().equals("USER"))
 			return service.getAllCategory();
 		return null;
 	}
@@ -57,7 +57,7 @@ public class CategoryController {
 			headers.add("Category name", cat.getCatname());
 			return new ResponseEntity<Category>(cat, headers, HttpStatus.OK);
 		} else {
-			headers.add("Category name", "Name not available");
+			headers.add("Category name", "Category not available");
 			return new ResponseEntity<Category>(cat, headers, HttpStatus.NOT_FOUND);
 		}
 	}

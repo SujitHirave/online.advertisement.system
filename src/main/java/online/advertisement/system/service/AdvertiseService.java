@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import online.advertisement.system.exception.AdvertiseNotFoundException;
 import online.advertisement.system.model.Advertise;
+import online.advertisement.system.model.Category;
 import online.advertisement.system.repository.AdvertiseRepository;
 
 @Service
@@ -82,5 +83,12 @@ public class AdvertiseService {
 			throw new AdvertiseNotFoundException();
 		else
 			return optAdv.get();
+	}
+
+//search product by text
+	public List<Advertise> getAdvertiseByText(String advertisetitle, double price, String description,
+			Category category) {
+		LOG.info("Search by Text");
+		return repository.searchproductByText();
 	}
 }

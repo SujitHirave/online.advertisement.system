@@ -6,15 +6,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import online.advertisement.system.model.AppUser;
-import online.advertisement.system.repository.AdminUserRepository;
+import online.advertisement.system.repository.AdminRepository;
 
 @Service
-public class AdminUserService {
+public class AdminService {
 
-	private static final Logger LOG = LoggerFactory.getLogger(AdminUserService.class);
+	private static final Logger LOG = LoggerFactory.getLogger(AdminService.class);
 
 	@Autowired
-	private AdminUserRepository repository;
+	private AdminRepository repository;
 
 //	Edit user
 	public AppUser editUserProfile(AppUser edit) {

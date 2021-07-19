@@ -7,6 +7,13 @@ import org.springframework.stereotype.Service;
 import online.advertisement.system.model.AppUser;
 import online.advertisement.system.repository.AppUserRepository;
 
+/**
+ * 
+ * 
+ * Service for Registration, Login and Logout functionalities
+ *
+ */
+
 @Service
 public class AppUserService {
 
@@ -23,21 +30,21 @@ public class AppUserService {
 		return repository.save(appusers);
 	}
 
-	// Login
+// Login
 	public AppUser login(AppUser appUser) {
 		LOG.info("LoginService");
 		currentAppUser = repository.findByUsername(appUser.getUsername());
 		return currentAppUser;
 	}
 
-//logout
+// logout
 	public String logout() {
 		LOG.info("logoutService");
 		currentAppUser = null;
 		return "User logged out successfully";
 	}
 
-	// login status
+// login status
 	public AppUser loginStatus() {
 		LOG.info("loginStatusService");
 		return currentAppUser;

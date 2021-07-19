@@ -20,7 +20,6 @@ public class Advertise {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "advid_generator")
 	@SequenceGenerator(name = "advid_generator", initialValue = 201, allocationSize = 1, sequenceName = "advId_seq")
 	private int advid;
-//	@OneToOne(mappedBy="advertise",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	@OneToOne(mappedBy = "advertise")
 	private Message message;
 
@@ -46,6 +45,18 @@ public class Advertise {
 	public Advertise() {
 		super();
 	}
+	
+
+	public Advertise(String advertisetitle, double price, String description, Category category) {
+		super();
+		this.advertisetitle = advertisetitle;
+		this.price = price;
+		this.description = description;
+		this.category = category;
+	}
+	
+	
+
 
 	public Advertise(int advid, String advertisetitle, double price, String description, String advownername,
 			Category category) {
@@ -57,6 +68,19 @@ public class Advertise {
 		this.advownername = advownername;
 		this.category = category;
 	}
+
+//	public Advertise(String advertisetitle) {
+//	super();
+//	this.advertisetitle = advertisetitle;
+//}
+//
+//	
+//
+//	public Advertise(String description) {
+//		super();
+//		this.description = description;
+//	}
+
 
 	public Advertise(int advid, Message message, String advertisetitle, double price, String description, String status,
 			String advownername, Category category) {

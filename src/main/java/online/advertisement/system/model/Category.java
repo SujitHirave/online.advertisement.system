@@ -31,8 +31,6 @@ public class Category {
 		super();
 	}
 	
-	
-
 	public Category(int catid, String catname) {
 		super();
 		this.catid = catid;

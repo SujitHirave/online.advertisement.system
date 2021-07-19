@@ -28,12 +28,6 @@ public class Message {
 	@JoinColumn(name = "userid")
 	private AppUser appUser;
 
-	@Column(name = "sellerId")
-	private int sellerId;
-
-	@Column(name = "buyerId")
-	private int buyerId;
-
 	@Column(name = "textMessage", nullable = false, length = 60)
 	private String textMessage;
 
@@ -47,23 +41,6 @@ public class Message {
 		this.advertise = advertise;
 		this.appUser = appUser;
 		this.textMessage = textMessage;
-	}
-
-	public Message(int msgid, Advertise advertise, AppUser appUser, int sellerId, int buyerId, String textMessage) {
-		super();
-		this.msgid = msgid;
-		this.advertise = advertise;
-		this.appUser = appUser;
-		this.sellerId = sellerId;
-		this.buyerId = buyerId;
-		this.textMessage = textMessage;
-	}
-
-	public Message(Advertise advertise, int sellerId, int buyerId) {
-		super();
-		this.advertise = advertise;
-		this.sellerId = sellerId;
-		this.buyerId = buyerId;
 	}
 
 	public int getMsgid() {
@@ -90,7 +67,6 @@ public class Message {
 		this.appUser = appUser;
 	}
 
-
 	public String getTextMessage() {
 		return textMessage;
 	}
@@ -101,8 +77,9 @@ public class Message {
 
 	@Override
 	public String toString() {
-		return "Message [msgid=" + msgid + ", advertise=" + advertise + ", appUser=" + appUser + ", sellerId="
-				+ sellerId + ", buyerId=" + buyerId + ", textMessage=" + textMessage + "]";
+		return "Message [msgid=" + msgid + ", advertise=" + advertise + ", appUser=" + appUser + ", textMessage="
+				+ textMessage + "]";
 	}
+	
 
 }

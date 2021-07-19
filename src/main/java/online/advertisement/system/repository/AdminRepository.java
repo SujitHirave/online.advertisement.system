@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AdminUserRepository extends JpaRepository<AppUser, Integer> {
+public interface AdminRepository extends JpaRepository<AppUser, Integer> {
 
 
 //	View user list

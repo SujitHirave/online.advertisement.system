@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 import online.advertisement.system.model.Advertise;
+import online.advertisement.system.model.Category;
 import online.advertisement.system.service.AdvertiseService;
 import online.advertisement.system.service.AppUserService;
 
 
-//@RestController("/user")
 @RestController
 public class AdvertiseController {
 
@@ -77,10 +77,10 @@ public class AdvertiseController {
 	}
 
 //	Search Advertise by text entered in textbox(seller)
-//	@GetMapping("/user/seller/getAdvByName/{advertisetitle}")
-//	private List<Advertise> getAdvertise(@PathVariable("advertisetitle") String advertisetitle) {
-//		return service.getAdvertiseByName(advertisetitle);
-//	}
+	@GetMapping("/user/seller/getAdvByText/{text}")
+	private List<Advertise> getAdvertise(String advertisetitle, double price, String description, Category category) {
+		return service.getAdvertiseByText(advertisetitle,price, description,  category);
+	}
 
 //	Buyer can also search for advertises by advertisetitle
 	@GetMapping("/user/buyer/getAdvertise/{advertisetitle}")

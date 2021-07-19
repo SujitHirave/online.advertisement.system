@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import online.advertisement.system.service.AppUserService;
-import online.advertisement.system.service.AdminUserService;
+import online.advertisement.system.service.AdminService;
 
 /**
  * 
@@ -26,7 +26,7 @@ public class AdminController {
 	private static final Logger LOG = LoggerFactory.getLogger(AdminController.class);
 
 	@Autowired
-	private AdminUserService service;
+	private AdminService service;
 
 	@Autowired
 	AppUserService appUserService;

@@ -13,6 +13,7 @@ import online.advertisement.system.repository.AdvertiseRepository;
  * service for Advertise functionalities
  *
  */
+
 @Service
 public class AdvertiseService {
 
@@ -27,7 +28,7 @@ public class AdvertiseService {
 		return repository.findByadvertisetitle(advertisetitle);
 	}
 
-//	Admin will Read all advertises posted by user(for changing status)
+//	 view advertise all Advertise
 	public List<Advertise> getAllAdvertises() {
 		LOG.info("ViewAllAdvertises");
 		return repository.findAll();
@@ -72,11 +73,10 @@ public class AdvertiseService {
 		return repository.viewApprovedAdv();
 	}
 
-//	 method that works with custom exception	
+//	 user can also search for advertises by advertisetitle	
 	public List<Advertise> findAdvertiseByadvertisetitle(String advertisetitle) {
 		LOG.info("findAdvertiseByadvertisetitle");
 		return repository.findByadvertisetitle(advertisetitle);
-
 	}
 
 }

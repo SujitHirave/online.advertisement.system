@@ -77,7 +77,7 @@ public class AdvertiseController {
 		return null;
 	}
 
-//	Buyer can also search for advertises by advertisetitle
+//	user can also search for advertises by advertisetitle
 	@GetMapping("/user/getAdvertise/{advertisetitle}")
 	public List<Advertise> getAdvertiseByadvertisetitle(String advertisetitle) {
 		LOG.info("getadv");
@@ -85,11 +85,10 @@ public class AdvertiseController {
 			return service.findAdvertiseByadvertisetitle(advertisetitle);
 		}
 		return null;
-
 	}
 
-// Buyer can view all the advertises posted by the seller
-	@GetMapping("/user/buyer/getAllAdv")
+// seller can view advertise 
+	@GetMapping("/user/seller/getAllAdv")
 	private List<Advertise> getAllAdv() {
 		LOG.info("ViewAdvertises");
 		if (appUserService.loginStatus().getRole().toString().equals("USER"))
@@ -97,7 +96,7 @@ public class AdvertiseController {
 		return null;
 	}
 
-//	Buyer can view the specific advertise  by id posted by seller
+//	seller can view the specific advertise  by id posted by seller
 	@GetMapping("/user/seller/getAdv/{advid}")
 	public Advertise getAdvertiseById(@PathVariable("advid") int advid) {
 		LOG.info("advertise");

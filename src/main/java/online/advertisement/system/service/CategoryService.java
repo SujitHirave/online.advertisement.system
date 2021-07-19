@@ -40,7 +40,6 @@ public class CategoryService {
 	public void deleteCategory(int catid) {
 		LOG.info("deleteCategory");
 		repository.deleteById(catid);
-
 	}
 
 //	 Method that works with custom exception

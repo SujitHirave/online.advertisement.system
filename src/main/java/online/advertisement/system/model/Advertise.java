@@ -65,18 +65,6 @@ public class Advertise {
 		this.category = category;
 	}
 
-//	public Advertise(String advertisetitle) {
-//	super();
-//	this.advertisetitle = advertisetitle;
-//}
-//
-//	
-//
-//	public Advertise(String description) {
-//		super();
-//		this.description = description;
-//	}
-
 	public Advertise(int advid, Message message, String advertisetitle, double price, String description, String status,
 			String advownername, Category category) {
 		super();

@@ -38,7 +38,7 @@ public class CategoryControllerTest {
 //  Negative test case	for findCategoryBycatid()
 	@Test
 	public void testgetCategoryBycatidNegative() {
-		LOG.info("testfindCategoryBycatid");
+		LOG.info("testfindCategoryBycatidNegative");
 		Category obj = new Category(1, "mobile");
 		when(service.findCategoryBycatid(1)).thenReturn(obj); // actual
 		String catname = "Laptop"; // unexpected
@@ -58,7 +58,7 @@ public class CategoryControllerTest {
 	// Negative test for addCategory()
 	@Test
 	public void testaddCategoryNegative() {
-		LOG.info(" testaddCategoryNegativ");
+		LOG.info(" testaddCategoryNegative");
 		Category obj = new Category(1, "mobiles");
 		Category obj1 = new Category(1, "laptop");
 		when(service.addCategory(obj)).thenReturn(obj);

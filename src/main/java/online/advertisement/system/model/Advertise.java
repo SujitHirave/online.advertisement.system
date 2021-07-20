@@ -95,6 +95,11 @@ public class Advertise {
 		this.advid = advid;
 		this.status = status;
 	}
+	
+
+	
+
+	
 
 	public int getAdvid() {
 		return advid;

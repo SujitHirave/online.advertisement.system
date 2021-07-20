@@ -38,7 +38,7 @@ public class LoginControllerTest {
 //  Negative test case-login()
 	@Test
 	public void testloginNegative() {
-		LOG.info("testLogin");
+		LOG.info("testLoginNegative");
 		AppUser appUser1 = new AppUser("user123", "passw");
 		AppUser appUser2 = userService.login(new AppUser("user123", "passw"));
 		when(userService.login(appUser2)).thenReturn(appUser1); // actual

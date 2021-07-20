@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import online.advertisement.system.model.Advertise;
+import online.advertisement.system.model.Category;
 import online.advertisement.system.service.AdvertiseService;
 
 /**
@@ -27,22 +28,23 @@ public class AdvertiseControllerTest {
 
 	// Positive test case for service.getAdvertiseById)
 	@Test
-	public void testgetAdvertiseById() {
-		LOG.info("testfindAdvertiseByName");
+	public void testgetAdvertiseById () {
+		LOG.info("testfindAdvertiseByid");
 		Advertise obj = new Advertise(11, "APPROVED");
-		when(service.getAdvertiseById(11)).thenReturn(obj); // actual
+		when(service.findAdvertiseByadvid(11)).thenReturn(obj); // actual
 		String status = "APPROVED"; // expected
-		assertEquals(status, service.getAdvertiseById(11).getStatus()); // assertEquals(expected, actual)
+		assertEquals(status, service.findAdvertiseByadvid(11).getStatus()); // assertEquals(expected, actual)
 	}
 
 	// Negative test case for service.getAdvertiseById()
 	@Test
 	public void testgetAdvertiseByIdNegative() {
-		LOG.info("testfindAdvertiseByIdNegative");
-		Advertise obj = new Advertise(11, "Rejected");
-		when(service.getAdvertiseById(11)).thenReturn(obj); // actual
-		String status = "APPROVED"; // unexpected
-		assertNotEquals(status, service.getAdvertiseById(11).getStatus()); // assertEquals(expected, actual)
+		LOG.info("testfindAdvertiseByidNegative");
+		Advertise obj = new Advertise(11, "APPROVED");
+		when(service.findAdvertiseByadvid(11)).thenReturn(obj); // actual
+		String status = "APPROV"; // expected
+		assertNotEquals(status, service.findAdvertiseByadvid(11).getStatus()); // assertEquals(expected, actual)
 	}
+
 
 }

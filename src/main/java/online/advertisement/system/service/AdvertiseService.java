@@ -49,10 +49,9 @@ public class AdvertiseService {
 	}
 
 //	Post New Advertise(Selling)
-	public void addAdvertise(int advid, String advertisetitle, double price, String description, String advownername,
-			int catid) {
+	public Advertise addAdvertise(Advertise adv) {
 		LOG.info("addProduct");
-		repository.addSellerAdv(advid, advertisetitle, price, description, advownername, catid);
+		return repository.save(adv);
 	}
 
 //	User will update advertise details (seller)

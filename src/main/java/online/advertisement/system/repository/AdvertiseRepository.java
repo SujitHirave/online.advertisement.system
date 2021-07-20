@@ -38,12 +38,6 @@ public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 	@Query(value = "SELECT * FROM advertise_adv WHERE status IN ( 'OPEN', 'APPROVED')", nativeQuery = true)
 	public abstract List<Advertise> viewApprovedAdv();
 
-//	Post New Advertise(Selling)
-	@Modifying
-	@Transactional
-	@Query(value = "INSERT INTO advertise_adv (advid, advertisetitle, price, description, advownername, catid) VALUES(:advid, :advertisetitle, :price, :description, :advownername, :catid) ", nativeQuery = true)
-	public abstract void addSellerAdv(int advid, String advertisetitle, double price, String description,
-			String advownername, int catid);
 
 //	User will update advertise details (seller)
 	@Modifying

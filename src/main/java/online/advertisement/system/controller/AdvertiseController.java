@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import online.advertisement.system.model.Advertise;
 import online.advertisement.system.service.AdvertiseService;
@@ -36,11 +37,11 @@ public class AdvertiseController {
 
 //	To post advertise
 	@PostMapping("/user/seller/AddNewAdv")
-	public void addNewProduct(int advid, String advertisetitle, double price, String description, String advownername,
-			int catid) {
+	public Advertise addNewProduct(@RequestBody Advertise adv) {
 		LOG.info("addproduct");
 		if (appUserService.loginStatus().getRole().toString().equals("USER"))
-			service.addAdvertise(advid, advertisetitle, price, description, advownername, catid);
+			return service.addAdvertise(adv);
+		return null;
 	}
 
 //	Seller can edit or update his advertise details 

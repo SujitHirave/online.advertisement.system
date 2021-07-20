@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import online.advertisement.system.exception.UserNotFoundException;
 import online.advertisement.system.model.AppUser;
 import online.advertisement.system.service.AppUserService;
 
@@ -43,8 +42,8 @@ public class LoginController {
 		if ((appUser.getUsername().equals(appUser2.getUsername())
 				&& (appUser.getPassword().equals(appUser2.getPassword())))) {
 			return appUser2;
-		} else
-			throw new UserNotFoundException();
+		} 
+		return null;
 	}
 
 // Logout

@@ -2,6 +2,8 @@ package online.advertisement.system.repository;
 
 import online.advertisement.system.model.Advertise;
 import java.util.List;
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -22,7 +24,7 @@ public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 	public abstract List<Advertise> findByadvertisetitle(String advertisetitle);
 
 //	Read the specific advertise by id(seller)
-	public abstract Advertise getByadvid(int advid);
+	public abstract Optional<Advertise> findByadvid(int advid);
 
 //	Delete product by id
 	@Modifying
@@ -61,4 +63,5 @@ public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 // find advertise by title
 	public abstract List<Advertise> findByAdvertisetitle(String advertisetitle);
 
+	
 }

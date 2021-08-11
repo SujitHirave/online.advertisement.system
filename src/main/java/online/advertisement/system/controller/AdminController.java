@@ -1,6 +1,8 @@
 package online.advertisement.system.controller;
 
 import java.util.List;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import online.advertisement.system.service.AppUserService;
 import online.advertisement.system.service.AdminService;
 
+
+
 /**
  * 
  * controller for Admin functionalities
@@ -21,6 +25,7 @@ import online.advertisement.system.service.AdminService;
  */
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3005")
 public class AdminController {
 
 	private static final Logger LOG = LoggerFactory.getLogger(AdminController.class);
@@ -35,9 +40,9 @@ public class AdminController {
 	@GetMapping("/admin/getAllUserDetails")
 	public List<AppUser> getAllUserDetails() {
 		LOG.info("ViewUsers");
-		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
+//		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
 			return service.getAllUsers();
-		return null;
+//		return null;
 	}
 
 //	View list of Users

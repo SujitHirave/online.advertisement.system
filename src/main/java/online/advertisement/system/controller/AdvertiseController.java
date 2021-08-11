@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,7 @@ import online.advertisement.system.service.AppUserService;
  */
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3005")
 public class AdvertiseController {
 
 	private static final Logger LOG = LoggerFactory.getLogger(AdvertiseController.class);
@@ -39,9 +41,9 @@ public class AdvertiseController {
 	@PostMapping("/user/seller/AddNewAdv")
 	public Advertise addNewProduct(@RequestBody Advertise adv) {
 		LOG.info("addproduct");
-		if (appUserService.loginStatus().getRole().toString().equals("USER"))
+//		if (appUserService.loginStatus().getRole().toString().equals("USER"))
 			return service.addAdvertise(adv);
-		return null;
+//		return null;
 	}
 
 //	Seller can edit or update his advertise details 

@@ -37,6 +37,9 @@ public class Advertise {
 
 	@Column(name = "advownername", length = 20)
 	private String advownername;
+	
+	@Column(name="imageUrl",length=80)
+	private String imageUrl;
 
 	@ManyToOne
 	@JoinColumn(name = "catid")
@@ -46,27 +49,39 @@ public class Advertise {
 		super();
 	}
 
-	public Advertise(String advertisetitle, double price, String description, Category category) {
+	
+
+	 
+
+	
+
+	public Advertise(String advertisetitle, double price, String description, String advownername, String imageUrl,
+			Category category) {
 		super();
 		this.advertisetitle = advertisetitle;
 		this.price = price;
 		this.description = description;
+		this.advownername = advownername;
+		this.imageUrl = imageUrl;
 		this.category = category;
 	}
 
+
+
 	public Advertise(int advid, String advertisetitle, double price, String description, String advownername,
-			Category category) {
+			String imageUrl, Category category) {
 		super();
 		this.advid = advid;
 		this.advertisetitle = advertisetitle;
 		this.price = price;
 		this.description = description;
 		this.advownername = advownername;
+		this.imageUrl = imageUrl;
 		this.category = category;
 	}
 
 	public Advertise(int advid, Message message, String advertisetitle, double price, String description, String status,
-			String advownername, Category category) {
+			String advownername, String imageUrl, Category category) {
 		super();
 		this.advid = advid;
 		this.message = message;
@@ -75,20 +90,11 @@ public class Advertise {
 		this.description = description;
 		this.status = status;
 		this.advownername = advownername;
+		this.imageUrl = imageUrl;
 		this.category = category;
 	}
 
-	public Advertise(int advid, Message message, String advertisetitle, double price, String description,
-			String advownername, Category category) {
-		super();
-		this.advid = advid;
-		this.message = message;
-		this.advertisetitle = advertisetitle;
-		this.price = price;
-		this.description = description;
-		this.advownername = advownername;
-		this.category = category;
-	}
+	
 
 	public Advertise(int advid, String status) {
 		super();
@@ -96,11 +102,6 @@ public class Advertise {
 		this.status = status;
 	}
 	
-
-	
-
-	
-
 	public int getAdvid() {
 		return advid;
 	}
@@ -121,13 +122,16 @@ public class Advertise {
 		return advertisetitle;
 	}
 
+
 	public void setAdvertisetitle(String advertisetitle) {
 		this.advertisetitle = advertisetitle;
 	}
 
+
 	public double getPrice() {
 		return price;
 	}
+
 
 	public void setPrice(double price) {
 		this.price = price;
@@ -141,9 +145,12 @@ public class Advertise {
 		this.description = description;
 	}
 
+
+
 	public String getStatus() {
 		return status;
 	}
+
 
 	public void setStatus(String status) {
 		this.status = status;
@@ -157,6 +164,16 @@ public class Advertise {
 		this.advownername = advownername;
 	}
 
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
 	public Category getCategory() {
 		return category;
 	}
@@ -165,11 +182,19 @@ public class Advertise {
 		this.category = category;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Advertise [advid=" + advid + ", advertisetitle=" + advertisetitle + ", price=" + price
-				+ ", description=" + description + ", status=" + status + ", advownername=" + advownername
-				+ ", category=" + category + "]";
+		return "Advertise [advid=" + advid + ", message=" + message + ", advertisetitle=" + advertisetitle + ", price="
+				+ price + ", description=" + description + ", status=" + status + ", advownername=" + advownername
+				+ ", imageUrl=" + imageUrl + ", category=" + category + "]";
 	}
+	
+
+	
+
+	
+
+	
 
 }

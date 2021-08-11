@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,7 @@ import online.advertisement.system.service.CategoryService;
  */
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3005")
 public class CategoryController {
 
 	private static final Logger LOG = LoggerFactory.getLogger(CategoryController.class);
@@ -38,9 +40,9 @@ public class CategoryController {
 	@PostMapping("/admin/addCategory")
 	public Category addCategory(@RequestBody Category cat) {
 		LOG.info("addcategory");
-		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
+//		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
 			return service.addCategory(cat);
-		return null;
+//		return null;
 	}
 
 //	User can view category

@@ -67,7 +67,7 @@ public class AdminController {
 	@DeleteMapping("/admin/deleteUser/{userid}")
 	public void deleteUser(@PathVariable int userid) {
 		LOG.info("deleteUser-controller");
-		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
+//		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
 			service.deleteUser(userid);
 	}
 

@@ -77,9 +77,9 @@ public class AdvertiseController {
 	@GetMapping("/user/buyer/getAllApprovedAdv")
 	private List<Advertise> getApprovedAdv() {
 		LOG.info("ViewAdvertises");
-		if (appUserService.loginStatus().getRole().toString().equals("USER"))
+//		if (appUserService.loginStatus().getRole().toString().equals("USER"))
 			return service.getApprovedAdvs();
-		return null;
+//		return null;
 	}
 
 //	user can also search for advertises by advertisetitle
@@ -96,9 +96,9 @@ public class AdvertiseController {
 	@GetMapping("/user/seller/getAllAdv")
 	private List<Advertise> getAllAdv() {
 		LOG.info("ViewAdvertises");
-		if (appUserService.loginStatus().getRole().toString().equals("USER"))
+//		if (appUserService.loginStatus().getRole().toString().equals("USER"))
 			return service.getAllAdvertises();
-		return null;
+//		return null;
 	}
 
 //	seller can view the specific advertise  by id posted by seller

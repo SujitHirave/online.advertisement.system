@@ -38,7 +38,7 @@ public class Advertise {
 	@Column(name = "advownername", length = 20)
 	private String advownername;
 	
-	@Column(name="imageUrl",length=80)
+	@Column(name="imageUrl")
 	private String imageUrl;
 
 	@ManyToOne

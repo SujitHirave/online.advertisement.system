@@ -40,13 +40,13 @@ public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 
 
 //	User will update advertise details (seller)
-	@Modifying
-	@Transactional
-	@Query(value = "UPDATE Advertise SET advertisetitle = :advertisetitle, price = :price, description = :description, advownername = :advownername WHERE advid = :advid ")
-	public abstract void updateSellerAdv(@Param(value = "advertisetitle") String advertisetitle,
-			@Param(value = "price") double price, @Param(value = "description") String description,
-			@Param(value = "advownername") String advownername, 
-			@Param(value = "advid") int advid);
+//	@Modifying
+//	@Transactional
+//	@Query(value = "UPDATE Advertise SET advertisetitle = :advertisetitle, price = :price, description = :description, advownername = :advownername WHERE advid = :advid ")
+//	public abstract void updateSellerAdv(@Param(value = "advertisetitle") String advertisetitle,
+//			@Param(value = "price") double price, @Param(value = "description") String description,
+//			@Param(value = "advownername") String advownername, 
+//			@Param(value = "advid") int advid);
 
 //	Admin will update status of advertise
 	@Modifying
@@ -56,6 +56,13 @@ public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 
 // find advertise by title
 	public abstract List<Advertise> findByAdvertisetitle(String advertisetitle);
+
+//	public abstract void save(int advid, Advertise adv);
+
+//	public abstract void updateSellerAdv(String advertisetitle, double price, String description, String advownername,
+//			int advid);
+
+//	public abstract Advertise updateSellerAdv(Advertise adv);
 
 	
 }

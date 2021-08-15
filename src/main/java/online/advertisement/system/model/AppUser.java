@@ -50,9 +50,9 @@ public class AppUser {
 		super();
 	}
 
-	public AppUser(String username, String password) {
+	public AppUser(String email, String password) {
 		super();
-		this.username = username;
+		this.email = email;
 		this.password = password;
 	}
 

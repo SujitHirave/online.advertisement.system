@@ -20,6 +20,7 @@ import online.advertisement.system.service.AppUserService;
 
 @RestController()
 @CrossOrigin(origins = "http://localhost:3005")
+
 public class LoginController {
 
 	private static final Logger LOG = LoggerFactory.getLogger(LoginController.class);
@@ -38,10 +39,10 @@ public class LoginController {
 	@PostMapping("/login")
 	public AppUser login(@RequestBody AppUser appUser) {
 		LOG.info("loginController");
-		LOG.info(appUser.getUsername());
+		LOG.info(appUser.getEmail());
 		LOG.info(appUser.getPassword());
 		AppUser appUser2 = userService.login(appUser);
-		if ((appUser.getUsername().equals(appUser2.getUsername())
+		if ((appUser.getEmail().equals(appUser2.getEmail())
 				&& (appUser.getPassword().equals(appUser2.getPassword())))) {
 			return appUser2;
 		} 

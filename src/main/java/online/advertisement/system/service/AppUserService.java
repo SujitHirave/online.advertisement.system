@@ -33,7 +33,7 @@ public class AppUserService {
 // Login
 	public AppUser login(AppUser appUser) {
 		LOG.info("LoginService");
-		currentAppUser = repository.findByUsername(appUser.getUsername());
+		currentAppUser = repository.findByEmail(appUser.getEmail());
 		return currentAppUser;
 	}
 

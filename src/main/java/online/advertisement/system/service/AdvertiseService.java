@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import online.advertisement.system.exception.AdvertiseNotFoundException;
 import online.advertisement.system.model.Advertise;
@@ -55,11 +56,19 @@ public class AdvertiseService {
 	}
 
 //	User will update advertise details (seller)
-	public void updateAdvertise(int advid, String advertisetitle, double price, String description, String advownername
-			) {
+//	public void updateAdvertise(  int advid,  String advertisetitle,double price,  String description, String advownername
+//			) {
+//		LOG.info("updateProduct");
+//		repository.updateSellerAdv(advertisetitle, price, description, advownername, advid);
+//	}
+	public void updateAdvertise(  Advertise adv  ) {
 		LOG.info("updateProduct");
-		repository.updateSellerAdv(advertisetitle, price, description, advownername, advid);
-	}
+	 repository.save(adv);
+		
+		
+	}	
+	
+
 
 //	Admin will update status of advertise
 	public void updateAdvStatus(int advid, String status) {

@@ -47,14 +47,24 @@ public class AdvertiseController {
 	}
 
 //	Seller can edit or update his advertise details 
+//	@PutMapping("/user/seller/editAdv")
+//	public void updateProduct(   @PathVariable("advid") int advid ,  @PathVariable("advertisetitle") String advertisetitle, @PathVariable("price") double price, @PathVariable("description") String description, @PathVariable("advownername") String advownername
+//			) {
+//		LOG.info("updateproduct");
+////		if (appUserService.loginStatus().getRole().toString().equals("USER"))
+//			service.updateAdvertise(advid, advertisetitle, price, description, advownername);
+//
+//	}
 	@PutMapping("/user/seller/editAdv")
-	public void updateProduct(   int advid, String advertisetitle, double price, String description, String advownername
-			) {
+	public void updateProduct( @RequestBody Advertise adv  ) {
 		LOG.info("updateproduct");
 //		if (appUserService.loginStatus().getRole().toString().equals("USER"))
-			service.updateAdvertise(advid, advertisetitle, price, description, advownername);
+			 service.updateAdvertise(adv);
 
 	}
+	
+	
+	
 
 //	Admin can view all the advertises posted by the seller for changing the status 
 	@GetMapping("/admin/getAllAdv")

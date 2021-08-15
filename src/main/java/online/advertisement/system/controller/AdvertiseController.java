@@ -48,11 +48,11 @@ public class AdvertiseController {
 
 //	Seller can edit or update his advertise details 
 	@PutMapping("/user/seller/editAdv")
-	public void updateProduct(int advid, String advertisetitle, double price, String description, String advownername,
-			int catid) {
+	public void updateProduct(   int advid, String advertisetitle, double price, String description, String advownername
+			) {
 		LOG.info("updateproduct");
-		if (appUserService.loginStatus().getRole().toString().equals("USER"))
-			service.updateAdvertise(advid, advertisetitle, price, description, advownername, catid);
+//		if (appUserService.loginStatus().getRole().toString().equals("USER"))
+			service.updateAdvertise(advid, advertisetitle, price, description, advownername);
 
 	}
 
@@ -85,11 +85,11 @@ public class AdvertiseController {
 //	user can also search for advertises by advertisetitle
 	@GetMapping("/user/getAdvertise/{advertisetitle}")
 	public List<Advertise> getAdvertiseByadvertisetitle(String advertisetitle) {
-		LOG.info("getadv");
-		if (appUserService.loginStatus().getRole().toString().equals("USER")) {
+		LOG.info("getadvbytitle");
+//		if (appUserService.loginStatus().getRole().toString().equals("USER")) {
 			return service.findAdvertiseByadvertisetitle(advertisetitle);
-		}
-		return null;
+		
+//		return null;
 	}
 
 // seller can view advertise 
@@ -120,7 +120,7 @@ public class AdvertiseController {
 	@DeleteMapping("/user/seller/deleteAdv/{advid}")
 	public void deleteAdv(@PathVariable int advid) {
 		LOG.info("deleteadvertise");
-		if (appUserService.loginStatus().getRole().toString().equals("USER"))
+//		if (appUserService.loginStatus().getRole().toString().equals("USER"))
 			service.deleteAdvertise(advid);
 	}
 }

@@ -3,6 +3,7 @@ package online.advertisement.system.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import online.advertisement.system.service.MessageService;
@@ -14,6 +15,7 @@ import online.advertisement.system.service.MessageService;
  */
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3005")
 public class MessageController {
 	private static final Logger LOG = LoggerFactory.getLogger(MessageController.class);
 

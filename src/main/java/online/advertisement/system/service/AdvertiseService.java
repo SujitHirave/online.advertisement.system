@@ -55,10 +55,10 @@ public class AdvertiseService {
 	}
 
 //	User will update advertise details (seller)
-	public void updateAdvertise(int advid, String advertisetitle, double price, String description, String advownername,
-			int catid) {
+	public void updateAdvertise(int advid, String advertisetitle, double price, String description, String advownername
+			) {
 		LOG.info("updateProduct");
-		repository.updateSellerAdv(advertisetitle, price, description, advownername, catid, advid);
+		repository.updateSellerAdv(advertisetitle, price, description, advownername, advid);
 	}
 
 //	Admin will update status of advertise

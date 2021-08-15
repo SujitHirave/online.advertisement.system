@@ -42,10 +42,10 @@ public interface AdvertiseRepository extends JpaRepository<Advertise, Integer> {
 //	User will update advertise details (seller)
 	@Modifying
 	@Transactional
-	@Query(value = "UPDATE Advertise SET advertisetitle = :advertisetitle, price = :price, description = :description, advownername = :advownername,  catid = :catid WHERE advid = :advid ")
+	@Query(value = "UPDATE Advertise SET advertisetitle = :advertisetitle, price = :price, description = :description, advownername = :advownername WHERE advid = :advid ")
 	public abstract void updateSellerAdv(@Param(value = "advertisetitle") String advertisetitle,
 			@Param(value = "price") double price, @Param(value = "description") String description,
-			@Param(value = "advownername") String advownername, @Param(value = "catid") int catid,
+			@Param(value = "advownername") String advownername, 
 			@Param(value = "advid") int advid);
 
 //	Admin will update status of advertise

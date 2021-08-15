@@ -55,15 +55,15 @@ public class Advertise {
 
 	
 
-	public Advertise(String advertisetitle, double price, String description, String advownername, String imageUrl,
-			Category category) {
+	public Advertise(String advertisetitle, double price, String description, String advownername, String imageUrl
+			) {
 		super();
 		this.advertisetitle = advertisetitle;
 		this.price = price;
 		this.description = description;
 		this.advownername = advownername;
 		this.imageUrl = imageUrl;
-		this.category = category;
+		
 	}
 
 

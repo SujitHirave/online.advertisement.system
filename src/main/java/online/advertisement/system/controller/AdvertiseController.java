@@ -41,9 +41,9 @@ public class AdvertiseController {
 	@PostMapping("/user/seller/AddNewAdv")
 	public Advertise addNewProduct(@RequestBody Advertise adv) {
 		LOG.info("addproduct");
-//		if (appUserService.loginStatus().getRole().toString().equals("USER"))
+		if (appUserService.loginStatus().getRole().toString().equals("USER"))
 			return service.addAdvertise(adv);
-//		return null;
+		return null;
 	}
 
 //	Seller can edit or update his advertise details 
@@ -58,7 +58,7 @@ public class AdvertiseController {
 	@PutMapping("/user/seller/editAdv")
 	public void updateProduct( @RequestBody Advertise adv  ) {
 		LOG.info("updateproduct");
-//		if (appUserService.loginStatus().getRole().toString().equals("USER"))
+		if (appUserService.loginStatus().getRole().toString().equals("USER"))
 			 service.updateAdvertise(adv);
 
 	}
@@ -77,8 +77,9 @@ public class AdvertiseController {
 
 //	Admin can update the status posted by the seller
 	@PutMapping("/admin/updateStatus")
-	public void updateStatus(int advid, String status) {
-		LOG.info("updateStatus");
+	public void updateStatus( int advid, String status) {
+//	public void updateStatus(@PathVariable("advid") int advid, String status) {
+//		LOG.info("updateStatus");
 		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
 			service.updateAdvStatus(advid, status);
 	}
@@ -96,19 +97,19 @@ public class AdvertiseController {
 	@GetMapping("/user/getAdvertise/{advertisetitle}")
 	public List<Advertise> getAdvertiseByadvertisetitle(String advertisetitle) {
 		LOG.info("getadvbytitle");
-//		if (appUserService.loginStatus().getRole().toString().equals("USER")) {
+		if (appUserService.loginStatus().getRole().toString().equals("USER")) {
 			return service.findAdvertiseByadvertisetitle(advertisetitle);
-		
-//		return null;
+		}
+		return null;
 	}
 
 // seller can view advertise 
 	@GetMapping("/user/seller/getAllAdv")
 	private List<Advertise> getAllAdv() {
 		LOG.info("ViewAdvertises");
-//		if (appUserService.loginStatus().getRole().toString().equals("USER"))
+		if (appUserService.loginStatus().getRole().toString().equals("USER"))
 			return service.getAllAdvertises();
-//		return null;
+		return null;
 	}
 
 //	seller can view the specific advertise  by id posted by seller
@@ -130,7 +131,7 @@ public class AdvertiseController {
 	@DeleteMapping("/user/seller/deleteAdv/{advid}")
 	public void deleteAdv(@PathVariable int advid) {
 		LOG.info("deleteadvertise");
-//		if (appUserService.loginStatus().getRole().toString().equals("USER"))
+		if (appUserService.loginStatus().getRole().toString().equals("USER"))
 			service.deleteAdvertise(advid);
 	}
 }

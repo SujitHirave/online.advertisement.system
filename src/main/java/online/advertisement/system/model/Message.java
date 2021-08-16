@@ -21,11 +21,13 @@ public class Message {
 	private int msgid;
 
 	@OneToOne
-	@JoinColumn(name = "advid")
+	@JoinColumn(name = "advid",nullable = true)
 	private Advertise advertise;
+	
+	
 
 	@OneToOne
-	@JoinColumn(name = "userid")
+	@JoinColumn(name = "userid" ,nullable = true)
 	private AppUser appUser;
 
 	@Column(name = "textMessage", nullable = false, length = 60)
@@ -34,6 +36,25 @@ public class Message {
 	public Message() {
 		super();
 	}
+	
+	
+
+	public Message(Advertise advertise, String textMessage) {
+		super();
+		this.advertise = advertise;
+		this.textMessage = textMessage;
+	}
+
+
+
+	public Message(int msgid, Advertise advertise, String textMessage) {
+		super();
+		this.msgid = msgid;
+		this.advertise = advertise;
+		this.textMessage = textMessage;
+	}
+
+
 
 	public Message(int msgid, Advertise advertise, AppUser appUser, String textMessage) {
 		super();

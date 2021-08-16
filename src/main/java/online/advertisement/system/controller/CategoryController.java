@@ -40,9 +40,9 @@ public class CategoryController {
 	@PostMapping("/admin/addCategory")
 	public Category addCategory(@RequestBody Category cat) {
 		LOG.info("addcategory");
-//		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
+		if (appUserService.loginStatus().getRole().toString().equals("ADMIN"))
 			return service.addCategory(cat);
-//		return null;
+		return null;
 	}
 
 //	User can view category
